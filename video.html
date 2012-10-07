@@ -1,0 +1,33 @@
+---
+layout: default
+title: A C D U B S C O M
+permalink: video/index.html
+---
+	<script type="text/javascript">
+$(document).ready(function(){
+var ytfeed="http://gdata.youtube.com/feeds/base/users/acooperw/uploads?orderby=updated&alt=rss&client=ytapi-youtube-rss-redirect&v=2";
+//http://gdata.youtube.com/feeds/base/users/acooperw/uploads?orderby=updated&alt=rss&client=ytapi-youtube-rss-redirect&v=2
+
+	$.get(ytfeed, function (data) {
+
+		$(data).find("item").each(function () { // or "item" or whatever suits your feed
+			var el = $(this);
+	
+			console.log("------------------------");
+			console.log("title      : " + el.find("title").text());
+			console.log("author     : " + el.find("author").text());
+			console.log("description: " + el.text());//.find("description").text());
+		});
+	});
+
+
+});
+</script>
+
+<div id="home">
+I'll pull this back in here soon.<br />
+<a href="http://www.youtube.com/acooperw">YouTube.com</a>
+<p>
+
+</p>
+</div>

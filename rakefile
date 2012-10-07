@@ -1,0 +1,71 @@
+# 
+# install rake:
+#     gem install rake
+# 
+# Run this command to see possible options:
+#     rake -T
+# 
+# rake build        # Build site using Jekyll
+# rake default      # Serve on Localhost with port 4000
+# rake deploy       # Deploy to Dev
+# rake deploy:all   # Deploy to Dev and Live
+# rake deploy:dev   # Deploy to Dev
+# rake deploy:live  # Deploy to Live
+# rake unstable     # Serve on Localhost with port 4000 using development version
+# 
+# update options and server names to actually make it work!
+
+devssh= "c00p@ve:/var/www/acdubs.com/html/"
+
+def jekyll(opts="", path="")
+  sh "rm -rf _site"
+  sh path + "jekyll " + opts
+end
+
+desc "Build site using Jekyll"
+task :build do
+  jekyll
+end
+
+desc "Serve on Localhost with port 4000"
+task :default do
+  jekyll "--server --auto"
+end
+
+desc "Serve on Localhost with port 4000 using development version"
+task :unstable do
+  jekyll "--server --auto", "../jekyll/bin/"
+end
+
+desc "Deploy to Dev"
+task :deploy => :"deploy:dev"
+
+namespace :deploy do
+  desc "Deploy to Dev: #{devssh}"
+  task :dev => :build do
+    puts "Deploying to dev"
+    rsync "#{devssh}"
+  end
+  
+  desc "Deploy to Live: #{devssh}"
+  task :live => :build do
+    puts "Deploying to live"
+    rsync "#{devssh}"
+  end
+  
+#  desc "Deploy to Dev and Live"
+#  task :all => [:dev, :live]
+  
+  def rsync(domain)
+    
+    
+    #puts 'Compressing CSS/JS files...'
+    #puts `find _site/css -name '*.css' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type css '{}' -o '{}' \\;`
+    #puts `find _site/js -name '*.js' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type js '{}' -o '{}' \\;`
+    sh "rsync -rtz _site/  #{domain}"
+    #example will pull files down:
+    # rsync -avz -e "ssh -p $portNumber" user@remoteip:/path/to/files/ /local/path/#{domain}/"
+  end
+  
+
+end
