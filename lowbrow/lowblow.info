@@ -1,6 +1,0 @@
-; $Id: lowblow.info,v 1.4 2007/06/08 05:50:57 dries Exp $
-name = Low Blow
-description = 
-version = 1
-core = 6.x
-engine = phptemplate
