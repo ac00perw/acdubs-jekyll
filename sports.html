@@ -1,0 +1,20 @@
+---
+layout: default
+title: Sports on TV
+permalink: sports-on-tv/index.html
+---
+<h1>My Teams & Leagues on TV </h1>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$.get("http://c00p.dynalias.org/aetv/", function(d){
+		$('#sports').html(d);
+	});
+
+});
+</script>
+<div id="sports">
+
+</div>
+</p>
+</div>

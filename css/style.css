@@ -494,17 +494,22 @@ width: 313px;
 height: 253px;
 
 }
-#contact-mail-page{
-width: 520px;
-padding: 15px;
+.icon{
+width: 100%;
+height: 50px;
+
 }
-.read-more{
+.audio{
+	background: url(/images/icon_mp3.png) top right no-repeat;
+}
+.blog{
+	background: url(/images/icon_blog.png) top right no-repeat;
+}
+.tweet{
+	margin: 10px 0 15px;
+}
+.tweet_hours{
 text-align: right;
+border-top: 1px dashed #ccc;
+font-size: .9em;
 }
-/*
-div.btn a.btnLink, div.btn a.btnLink:hover {
-	width:100px; height:47px; display:block; font-weight:bold;
-	line-height:3em; background:url('the_sprite.gif') no-repeat 0 0
-}
-div.btn a.btnLink:hover { background-position:0 -48px }
-*/
