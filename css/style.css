@@ -439,11 +439,11 @@ width:100px; height:40px;
 div.nblog :hover{
 background-position: -128px 0;
 }
-div.nvideoblog a{
+div.nvideo a{
 background: url(/images/nav.png) 0px -39px no-repeat;
 width:110px; height:38px;
 }
-div.nvideoblog :hover{
+div.nvideo :hover{
 background: url(/images/nav.png) -128px -39px no-repeat;
 }
 div.nmusic a{
@@ -461,11 +461,11 @@ div.nrecipes :hover{
 background: url(/images/nav.png) -128px -107px no-repeat;
 width: 147px;
 }
-div.nsports-television a{
+div.ntvsports a{
 background: url(/images/nav.png) 0px -149px no-repeat;
 width:115px; height:36px;
 }
-div.nsports-television :hover{
+div.ntvsports :hover{
 background: url(/images/nav.png) -128px -149px no-repeat;
 width: 147px;
 }

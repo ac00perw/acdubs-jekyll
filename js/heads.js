@@ -1,42 +1,44 @@
 
+function attachNavEvents(links, returnSpot) {
 
-function attachNavEvents(myClass, position) {
-var returnSpot='0 -1263px';
+	$.each(links, function(index, value){
+	  var thisClass="."+ value.link.toString();
+	  var pos=value.pos;
+	  
+    $(thisClass).mouseover(function() {
+		$('#head').hide().dequeue().css({'background-position': pos}).fadeIn(200);
 
-	//get current url to fix position of head
-	var url=window.location.pathname.split("/");
-	console.log(url[1]);
-	var current="n"+url[1];
-	
-	if(current == myClass){
-		returnSpot=position;
-	}
-	
-
-    $(".navlist ." + myClass).mouseover(function() {
-	console.log(myClass+" "+position);
-
-	$('#head').css({'background-position': position});
-
-	
 	}).mouseout(function() {
-
-
-		$('#head').stop().css({'background-position': returnSpot});
+		bp=returnSpot.split(" ");
+		$('#head').hide().dequeue().css({'background-position': returnSpot, "opacity": 1}).fadeIn(200);
+	});
+	
 	});
 
 }
 
+
 $(document).ready(function(){
-	attachNavEvents("nblog",'0px -252px');
-	attachNavEvents(	"nvideoblog" 	,'0px -756px');
-	attachNavEvents(	"nmusic"		,'0px -1514px');
-	attachNavEvents(	"nrecipes"		,'0px -506px');
-	attachNavEvents("nsports-television",'0px 0px');
-	attachNavEvents(	"nabout"		,'0px -1010px');
-	attachNavEvents(	"ncontact"		,'0px -1770px');
-	attachNavEvents(	"nhome"			,'0px -1263px');
-	$('#head').stop().animate({backgroundPosition: '0px -1263px'});
+
+var links={'blog': {"link":"nblog", "pos":'0px -252px'}, 'video': {"link":'nvideo',"pos":'0px -756px'},
+    'music': {"link":'nmusic',"pos":'0px -1514px'},
+    'recipes': {"link":"nrecipes", "pos":'0px -506px'},
+    "tvsports": {"link":"ntvsports","pos":'0px 0px'},
+    'about': {"link":"nabout", "pos":'0px -1010px'},
+	"contact": {"link":"ncontact","pos":'0px -1770px'},  
+	"home": {"link":"nhome","pos":  '0px -1263px'}};
+	
+	var url=window.location.pathname.split("/");
+	var current=url[1];
+	if(current==''){
+		current='home';
+	}
+	
+	var returnSpot=eval("links."+current+".pos")
+
+	attachNavEvents(links, returnSpot);
+
+	$('#head').stop().css({backgroundPosition: returnSpot});
 	
 
 function linkify(inputText, options) {
