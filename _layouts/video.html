@@ -15,8 +15,7 @@ $(document).ready(function(){
 	
 	$.get("http://gdata.youtube.com/feeds/base/users/acooperw/uploads?orderby=updated&alt=json&format=5", function(data){
 		  var feed = data.feed;
-		  var out='<form><select id="dropdown">';
-		  out += '<option value="null">Select...</option>';
+		  var out='<ul>';
 		  var entries = feed.entry || [];
 			  for (var i = 0; i < entries.length; i++) {
 				var entry = entries[i];
@@ -25,10 +24,10 @@ $(document).ready(function(){
 				var link = entry.link[1].href.split("/");
 				//console.log(entry);
 				//out.push('<li>', title, '</li>');
-				  out+='<option value="'+ link[link.length-1] +'">' + title +'</options>';
+				  out+='<li>' + title +'</li>';
 			  }
-		  out+="</select></form>";
-		  //$('#videos').html(out);
+		  out+="</ul>";
+		  $('#videos').append(out);
 		}, "jsonp");
 });
 </script>
