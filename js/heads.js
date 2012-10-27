@@ -17,7 +17,6 @@ function attachNavEvents(links, returnSpot) {
 
 }
 
-
 $(document).ready(function(){
 
 var links={'blog': {"link":"nblog", "pos":'0px -252px'}, 'video': {"link":'nvideo',"pos":'0px -756px'},
@@ -26,22 +25,26 @@ var links={'blog': {"link":"nblog", "pos":'0px -252px'}, 'video': {"link":'nvide
     "tvsports": {"link":"ntvsports","pos":'0px 0px'},
     'about': {"link":"nabout", "pos":'0px -1010px'},
 	"contact": {"link":"ncontact","pos":'0px -1770px'},  
-	"404": {"link":"n404","pos":'0px -1770px'},  
-	"home": {"link":"nhome","pos":  '0px -1263px'}};
+	"fourohfour": {"link" :"nfourohfour",  "pos": '0px -2024px'},  
+	"home": {"link":"nhome", "pos": '0px -1263px'}};
 	
 	var url=window.location.pathname.split("/");
 	var current=url[1];
 	if(current==''){
 		current='home';
 	}
+	//test whether or not current exists in links. 
+	//if yes- pull pos if '' pull home pos
+	//if no use 404
+	console.log($.param(links));
+
 	
 	var returnSpot=eval("links."+current+".pos")
-
+	console.log(returnSpot);
 	attachNavEvents(links, returnSpot);
 
 	$('#head').stop().css({backgroundPosition: returnSpot});
 	
-
 function linkify(inputText, options) {
     
   this.options = {linkClass: 'url', targetBlank: true};
