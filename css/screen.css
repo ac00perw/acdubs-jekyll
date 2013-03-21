@@ -13,13 +13,16 @@
 
 html, body {
   height: 100%;
+  
 }
 
 body {
   background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
+  font-family: "ff-providence-sans-web-pro", helvetica, arial, sans-serif;
+  font-size: 13.34px;
   *font-size: small;
   text-align: center;
+xx
 }
 
 h1, h2, h3, h4, h5, h6 {

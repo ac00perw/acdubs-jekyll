@@ -8,7 +8,7 @@ body {
   padding: 0;
   color: #000;
   background-color: #fff;
-  font: 100% Helvetica, sans-serif;
+  font: 100% "freight-text-pro", Helvetica, sans-serif;
   background: url(/images/cardboard.jpg);
   background-position: center top;
 background-attachment: fixed;
@@ -20,6 +20,7 @@ tr.odd td, tr.even td {
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5em;
   color: #333;
+  font-family: "ff-providence-sans-web-pro", Helvetica, sans-serif;
 }
 h1 {
   font-size: 1.3em;
@@ -107,6 +108,7 @@ table {
 #navlist a {
   font-weight: bold;
   color: #fff;
+  font-family: "ff-providence-sans-web-pro", Helvetica, sans-serif;
 }
 #subnavlist {
   padding: 0.5em 1.2em 0.4em 0; /* LTR */
@@ -420,7 +422,7 @@ left: 210px;
 width: 200px;
 }
 #nav .navlist div a{
-text-indent: 200px;
+/*text-indent: 200px;*/
 overflow: hidden;
 display:block;
 margin-top: 5px;
