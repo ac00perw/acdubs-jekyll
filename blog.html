@@ -32,12 +32,12 @@ $(document).ready(function() {
           var hours      = Math.round(date_diff/(1000*60*60));
 
           // Build the html string for the current tweet
-          var tweet_html = '<div class="tweet">';
+          var tweet_html = '<li class="tweet">';
 		tweet_html    += '<div class="tweet_hours">' + hours;
           tweet_html    += ' hours ago<\/div>';
           //tweet_html    += '<a href="http://www.twitter.com/';
           //tweet_html    += twitter_user + '/status/' + tweet.id + '">';
-          tweet_html    += tweet.text + '<\/div>';
+          tweet_html    += tweet.text + '<\/li>';
 
 
           // Append html string to tweet_container div
@@ -49,9 +49,6 @@ $(document).ready(function() {
   );
 });
 </script>
-<h1>Microblog | Tweetings | Musings</h1>
-<div id="home">
 From <a href="http://www.twitter.com/ac00perw">TwitterCom</a>
-<div id="tweets">
-</div>
-</div>
+<ul id="tweets" class="no-bullet">
+</ul>
