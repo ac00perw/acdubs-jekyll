@@ -1,5 +1,5 @@
 markdown: rdiscount
 pygments: true
-exclude: [rakefile, lowbrow]
+exclude: [rakefile, lowbrow, f4index.html]
 plugins: ./_plugins
 siteTitle: Adam Cooper Wood | acdubs.com

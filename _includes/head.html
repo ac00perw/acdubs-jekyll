@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>{{ page.title }} | {{ site.siteTitle }}</title>
+   <meta name="author" content="Adam Cooper Wood" />
+   
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+   	<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.transit.js"></script>
+	  <script src="js/vendor/custom.modernizr.js"></script>
+	<script type="text/javascript" src="/js/heads.js?7"></script>
+	<script type="text/javascript" src="//use.typekit.net/xed0uqy.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	
+<script type="text/javascript">
+
+	function loadNew(l){
+		console.log(l);
+		$('#ytplayer').attr('src', 'http://www.youtube.com/embed/'+l+'?autoplay=1');
+	}
+$(document).ready(function(){
+
+	$.get("http://gdata.youtube.com/feeds/base/users/acooperw/uploads?orderby=updated&alt=json&format=5", function(data){
+		  var feed = data.feed;
+		  var out='<ul>';
+		  var entries = feed.entry || [];
+			  for (var i = 0; i < entries.length; i++) {
+				var entry = entries[i];
+				var title = entry.title.$t;
+				var id=entry.id.$t;
+				var link = entry.link[1].href.split("/");
+				  out+='<li><a href="javascript:loadNew(\''+link[8]+'\')">' + title +'</a></li>';
+			  }
+		  out+="</ul>";
+		  $('#videos').hide().html(out).slideDown(6000);
+		}, "jsonp");
+		
+
+});
+</script>
+
+</head>

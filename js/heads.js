@@ -7,26 +7,35 @@ function attachNavEvents(links, returnSpot) {
 	  
     $(thisClass).mouseover(function() {
 		$('#head').hide().dequeue().css({'background-position': pos}).fadeIn(200);
-
+		//rotateHead();
 	}).mouseout(function() {
 		bp=returnSpot.split(" ");
+		//$('#head').css({rotate: 0});
 		$('#head').hide().dequeue().css({'background-position': returnSpot, "opacity": 1}).fadeIn(200);
 	});
 	
 	});
 
 }
+	
+
+function rotateHead(){
+$('#head').css({rotate: 8640});
+$("#head").transition({ rotate: -8640 }, 3600, "in-out", function(){   
+		//rotateHead();
+	});
+}
 
 $(document).ready(function(){
 
-var links={'blog': {"link":"nblog", "pos":'0px -252px'}, 'video': {"link":'nvideo',"pos":'0px -756px'},
-    'music': {"link":'nmusic',"pos":'0px -1514px'},
-    'recipes': {"link":"nrecipes", "pos":'0px -506px'},
-    "tvsports": {"link":"ntvsports","pos":'0px 0px'},
-    'about': {"link":"nabout", "pos":'0px -1010px'},
-	"contact": {"link":"ncontact","pos":'0px -1770px'},  
-	"fourohfour": {"link" :"nfourohfour",  "pos": '0px -2024px'},  
-	"home": {"link":"nhome", "pos": '0px -1263px'}};
+var links={'blog': {"link":"nblog", "pos":'-15px -252px'}, 'video': {"link":'nvideo',"pos":'-15px -756px'},
+    'music': {"link":'nmusic',"pos":'-15px -1514px'},
+    'recipes': {"link":"nrecipes", "pos":'-15px -506px'},
+    "tvsports": {"link":"ntvsports","pos":'-15px 0px'},
+    'about': {"link":"nabout", "pos":'-15px -1010px'},
+	"contact": {"link":"ncontact","pos":'-15px -1770px'},  
+	"fourohfour": {"link" :"nfourohfour",  "pos": '-15px -2024px'},  
+	"home": {"link":"nhome", "pos": '-15px -1263px'}};
 	
 	var url=window.location.pathname.split("/");
 	var current=url[1];
@@ -44,7 +53,9 @@ var links={'blog': {"link":"nblog", "pos":'0px -252px'}, 'video': {"link":'nvide
 	attachNavEvents(links, returnSpot);
 
 	$('#head').stop().css({backgroundPosition: returnSpot});
+
 	
+
 function linkify(inputText, options) {
     
   this.options = {linkClass: 'url', targetBlank: true};
