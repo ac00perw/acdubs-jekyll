@@ -1,19 +1,48 @@
 {% include head.html %}
 <body>
 <div id="page" class="row">
-	<div class="twelve columns">
-		<img src="/images/slinkycar.png"/>
-	</div>
-	<div class="twelve columns">
-		{% include nav.html %}
-		<h1>{{ page.title }}</h1>
-		<div id="contentwrapper" class="row">
-			<div class="node large-twelve columns">
-				 {{ content }}
+	<div id="scene">
+		<div id="road">
+		</div>
+		<div id="guardrail">
+			<img src="/images/guardrail.png"/>	
+		</div>
+		
+
+		<div id="tree">
+			<img src="/images/tree.png"/>	
+		</div>
+		<div id="tree2">
+			<img src="/images/tree.png"/>	
+		</div>
+		<div id="tree3">
+			<img src="/images/tree.png"/>	
+		</div>
+		<div id="car">
+			<div id="slinky">
+			<img src="/images/slinky.png">
+			</div>
+			<div id="carbody">
+			<img src="/images/slinkycar.png"/>
+			</div>
+			<div id="wheel1">
+			<img src="/images/wheel.png"/>
+			</div>
+			<div id="wheel2">
+			<img src="/images/wheel.png"/>
+			</div>
+						
+		</div>
+	</div><!-- end scene -->
+		<div class="twelve columns">
+			{% include nav.html %}
+			<h1>{{ page.title }}</h1>
+			<div id="contentwrapper" class="row">
+				<div class="node large-twelve columns">
+					 {{ content }}
+				</div>
 			</div>
 		</div>
-	</div>
-
 </div>
 <div class="row">
 	  {% include footer.html %}

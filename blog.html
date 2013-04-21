@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Twitter/Blog
+title: Twitterish Blog
 permalink: blog/index.html
+id: blog
 ---
 <script type="text/javascript">
 $(document).ready(function() {
@@ -16,7 +17,7 @@ $(document).ready(function() {
   // The returned JSON object will have a property called "results" where we find
   // a list of the tweets matching our request query
   $.getJSON(
-    twitter_api_url + '?callback=?&rpp=10&q=from:' + twitter_user,
+    twitter_api_url + '?callback=?&rpp=20&q=from:' + twitter_user,
     function(data) {
       $.each(data.results, function(i, tweet) {
         // Uncomment line below to show tweet data in Fire Bug console
@@ -32,13 +33,12 @@ $(document).ready(function() {
           var hours      = Math.round(date_diff/(1000*60*60));
 
           // Build the html string for the current tweet
-          var tweet_html = '<li class="tweet">';
-		tweet_html    += '<div class="tweet_hours">' + hours;
-          tweet_html    += ' hours ago<\/div>';
+          var tweet_html = '<div class="row tweet"><div class="small-2 large-2 columns">';
+		tweet_html    += hours;
+          tweet_html    += ' hours ago</div>';
           //tweet_html    += '<a href="http://www.twitter.com/';
           //tweet_html    += twitter_user + '/status/' + tweet.id + '">';
-          tweet_html    += tweet.text + '<\/li>';
-
+          tweet_html    += '<div class="small-10 large-10 columns">'+ tweet.text + '</div></div>';
 
           // Append html string to tweet_container div
           $('#tweets').append(tweet_html);
@@ -49,6 +49,6 @@ $(document).ready(function() {
   );
 });
 </script>
+<div id="tweets" class="twelve columns">
+</div>
 From <a href="http://www.twitter.com/ac00perw">TwitterCom</a>
-<ul id="tweets" class="no-bullet">
-</ul>

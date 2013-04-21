@@ -121,6 +121,9 @@ background-repeat: no-repeat;
 margin: 0 auto;
 height: auto;
 }
+#tree{
+position: absolute;
+}
 div#contentwrapper{
 display: block;
 max-width: 560px;
