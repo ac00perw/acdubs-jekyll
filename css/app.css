@@ -180,15 +180,57 @@ animation: scenemove 100s linear infinite;
   100%  { background-position: 0 0; }
 }
 
+#elbycar{
+width: 500px;
+position: absolute;
+bottom: 40px;
+left: 30%;
+z-index: 19;
+-moz-animation: mdriveon 28s linear infinite;
+-webkit-animation: mdriveon 28s linear infinite;
+animation: mdriveon 28s linear infinite;	
+}
+#elby{
+width: 100px;
+position: absolute;
+bottom: 46px;
+left: 270px;
+z-index: -10;
+-webkit-animation: slinkybounce .25s linear infinite;
+animation: slinkybounce .25s linear infinite;	
+-moz-animation: slinkybounce .25s linear infinite;	
+}
+
+
 #mowglicar{
 width: 500px;
 position: absolute;
 bottom: 25px;
-left: 10%;
+left: 5%;
 z-index: 20;
--moz-animation: driveon 25s linear infinite;
--webkit-animation: driveon 25s linear infinite;
-animation: driveon 25s linear infinite;	
+-moz-animation: mdriveon 35s linear infinite;
+-webkit-animation: mdriveon 35s linear infinite;
+animation: mdriveon 35s linear infinite;	
+}
+@-webkit-keyframes mdriveon { 
+  0%   { left: 2000px; }
+
+  100%  { left: -2000px;  }
+}
+@keyframes mdriveon { 
+  0%   { left: 5%; }
+  20% {left: 6%; }
+  40%  { left: 3%;  }  
+  50%  { left: 5%;  }  
+  70%  { left: 7%;  }
+  100%  { left: 5%;  }
+}@-moz-keyframes mdriveon { 
+  0%   { left: 5%; }
+  20% {left: 6%; }
+  40%  { left: 3%;  }  
+  50%  { left: 5%;  }  
+  70%  { left: 7%;  }
+  100%  { left: 5%;  }
 }
 #mowgli{
 width: 100px;
@@ -204,22 +246,15 @@ animation: slinkybounce .25s linear infinite;
 #car{
 width: 500px;
 position: absolute;
-bottom: 10px;
-left: 33%;
+bottom: 5px;
+left: 50%;
 /* -webkit-animation: driveon 5s linear 1; */
-	-moz-animation: carbounce .25s linear infinite;
-	-webkit-animation: carbounce .25s linear infinite;
-	animation: carbounce .25s linear infinite;	
+	-moz-animation: sdriveon 15s linear infinite;
+	-webkit-animation: sdriveon 15s linear infinite;
+	animation: sdriveon 15s linear infinite;	
 z-index: 20;
 }
-@-webkit-keyframes driveon { 
-  0%   { left: 10%; }
-  20% {left: 15%; }
-  40%  { left: 10%;  }  
-  50%  { left: 13%;  }  
-  70%  { left: 5%;  }
-  100%  { left: 10%;  }
-}
+
 #wheel1{
 position:absolute;
 bottom: 15px;
@@ -235,6 +270,9 @@ left: 353px;
 animation: wheels .25s linear infinite;
 -webkit-animation: wheels .25s linear infinite;
 -moz-animation: wheels .25s linear infinite;
+}
+#mowglicar #wheel2, #elbycar #wheel2{
+left: 357px;
 }
 @keyframes wheels { 
   0%   { -webkit-transform: rotate(0deg); }
@@ -266,45 +304,46 @@ z-index: -10;
 animation: slinkybounce .25s linear infinite;	
 -moz-animation: slinkybounce .25s linear infinite;	
 }
-@-moz-keyframes slinkybounce { 
+@-moz-keyframes carbounce { 
   0%   { bottom: 48px }
   25%  { bottom: 47px; }  
-  60%   { bottom: 48px }
+  60%   { bottom: 47px }
   80%  { bottom: 49px; }  
 
 }
 @-webkit-keyframes slinkybounce { 
   0%   { bottom: 48px }
   25%  { bottom: 47px; }  
-  60%   { bottom: 48px }
+  60%   { bottom: 47px }
   80%  { bottom: 49px; }  
 
 }
 @keyframes slinkybounce { 
   0%   { bottom: 48px }
   25%  { bottom: 47px; }  
-  60%   { bottom: 48px }
+  60%   { bottom: 47px }
   80%  { bottom: 49px; }  
 
 }
 
-@keyframes carbounce { 
-  0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(.5deg); }  
-  50%  { transform: rotate(0deg); }
-  75%  { transform: rotate(-1deg); }
+@-moz-keyframes sdriveon { 
+  0%   { left: 50%; }
+  25%  { left: 49%; }  
+  100%  { left: 50%; }  
+
 }
-@-moz-keyframes carbounce { 
-  0%   { -moz-transform: rotate(0deg); }
-  25%  { -moz-transform: rotate(.5deg); }  
-  50%  { -moz-transform: rotate(0deg); }
-  75%  { -moz-transform: rotate(-1deg); }
+@-webkit-keyframes sdriveon { 
+  0%   { left: 50%; }
+  25%  { left: 49%; }  
+  100%  { left: 50%; }  
+
 }
-@-webkit-keyframes carbounce { 
-  0%   { -webkit-transform: rotate(0deg); }
-  25%  { -webkit-transform: rotate(.5deg); }  
-  50%  { -webkit-transform: rotate(0deg); }
-  75%  { -webkit-transform: rotate(-.2deg); }
+@keyframes sdriveon { 
+  0%   { bottom: 48px }
+  25%  { bottom: 47px; }  
+  60%   { bottom: 47px }
+  80%  { bottom: 49px; }  
+
 }
 .tweet{
 margin-bottom:20px;
