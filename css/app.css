@@ -50,9 +50,6 @@ margin-top: 50px;
 background: rgba(225,225,225,.75);
 outline: 1px solid #000;
 padding: 10px;
--moz-box-shadow: 2px 2px 2px #000;
--webkit-box-shadow: 2px 2px 2px #000;
-box-shadow: 2px 2px 2px #000;
 }
 #page p img{
 margin: 10px;
@@ -67,11 +64,13 @@ z-index: 3;
 #tree{
 -webkit-animation: zoomby 2s linear infinite;
 animation: zoomby 2s linear infinite;
+-moz-animation: zoomby 2s linear infinite;
 bottom: 30px;	
 
 }
 #tree2{
 -webkit-animation: zoomby2 2.1s linear infinite;
+-moz-animation: zoomby2 2.1s linear infinite;
 animation: zoomby2 2.1s linear infinite;
 }
 
@@ -83,6 +82,10 @@ animation: zoomby2 2.1s linear infinite;
   0%   { left: -1300px; }
   100%  { left: 1300px }
 }
+@-moz-keyframes zoomby2 { 
+  0%   { left: -1300px; }
+  100%  { left: 1300px }
+}
 @-webkit-keyframes zoomby { 
   0%   { left: -1100px; }
   100%  { left: 1100px }
@@ -91,7 +94,12 @@ animation: zoomby2 2.1s linear infinite;
   0%   { left: -1100px; }
   100%  { left: 1100px }
 }
+@-moz-keyframes zoomby { 
+  0%   { left: -1100px; }
+  100%  { left: 1100px }
+}
 #tree3{
+-moz-animation: tree3z 2.15s linear infinite;
 -webkit-animation: tree3z 2.15s linear infinite;
 animation: tree3z 2.15s linear infinite;
 }
@@ -100,6 +108,10 @@ animation: tree3z 2.15s linear infinite;
   100%  { left: 1100px }
 }
 @keyframes tree3z { 
+  0%   { left: -1400px; }
+  100%  { left: 1100px }
+}
+@-moz-keyframes tree3z { 
   0%   { left: -1400px; }
   100%  { left: 1100px }
 }
@@ -122,6 +134,7 @@ background: url(/images/guardrail.png) repeat-x;
 bottom: 50px;
 -webkit-animation: rail .25s linear infinite;
 animation: rail .25s linear infinite;	
+-moz-animation: rail .25s linear infinite;	
 z-index: 19;
 }
 @-webkit-keyframes rail { 
@@ -132,6 +145,15 @@ z-index: 19;
   0%   { left: -300px; }
   100%  { left: 0px }
 }
+@-moz-keyframes rail { 
+  0%   { left: -300px; }
+  100%  { left: 0px }
+}
+
+#deadscene{
+border: 1px solid #333;
+display: block;
+}
 
 #scene{
 display: block;
@@ -141,44 +163,95 @@ width: 100%;
 border: 1px solid #333;
 overflow-x: hidden;
 background: url(/images/scenebg.jpg) no-repeat 0  0;
--webkit-animation: scenemove 50s linear infinite;	
+-webkit-animation: scenemove 100s linear infinite;	
+animation: scenemove 100s linear infinite;	
+-moz-animation: scenemove 100s linear infinite;	
 }
 @-webkit-keyframes scenemove { 
   0%   { background-position: -300px 0; }
   100%  { background-position: 0 0; }
 }
+@-moz-keyframes scenemove { 
+  0%   { background-position: -300px 0; }
+  100%  { background-position: 0 0; }
+}
+@keyframes scenemove { 
+  0%   { background-position: -300px 0; }
+  100%  { background-position: 0 0; }
+}
+
+#mowglicar{
+width: 500px;
+position: absolute;
+bottom: 25px;
+left: 10%;
+z-index: 20;
+-moz-animation: driveon 25s linear infinite;
+-webkit-animation: driveon 25s linear infinite;
+animation: driveon 25s linear infinite;	
+}
+#mowgli{
+width: 100px;
+position: absolute;
+bottom: 48px;
+left: 255px;
+z-index: -10;
+-webkit-animation: slinkybounce .25s linear infinite;
+animation: slinkybounce .25s linear infinite;	
+-moz-animation: slinkybounce .25s linear infinite;	
+}
 
 #car{
+width: 500px;
 position: absolute;
 bottom: 10px;
-left: 320px;
+left: 33%;
 /* -webkit-animation: driveon 5s linear 1; */
--webkit-animation: carbounce .25s linear infinite;
-animation: carbounce .25s linear infinite;	
+	-moz-animation: carbounce .25s linear infinite;
+	-webkit-animation: carbounce .25s linear infinite;
+	animation: carbounce .25s linear infinite;	
 z-index: 20;
 }
 @-webkit-keyframes driveon { 
-  0%   { left: 2000px }
-  80%  { left: 200px; }  
-
+  0%   { left: 10%; }
+  20% {left: 15%; }
+  40%  { left: 10%;  }  
+  50%  { left: 13%;  }  
+  70%  { left: 5%;  }
+  100%  { left: 10%;  }
 }
 #wheel1{
 position:absolute;
 bottom: 15px;
 left: 55px;
+animation: wheels .25s linear infinite;
 -webkit-animation: wheels .25s linear infinite;
+-moz-animation: wheels .25s linear infinite;
 }
 #wheel2{
 position:absolute;
 bottom: 15px;
 left: 353px;
+animation: wheels .25s linear infinite;
 -webkit-animation: wheels .25s linear infinite;
+-moz-animation: wheels .25s linear infinite;
+}
+@keyframes wheels { 
+  0%   { -webkit-transform: rotate(0deg); }
+  100%  { -webkit-transform: rotate(-360deg); } 
+
 }
 @-webkit-keyframes wheels { 
   0%   { -webkit-transform: rotate(0deg); }
   100%  { -webkit-transform: rotate(-360deg); } 
 
 }
+@-moz-keyframes wheels { 
+  0%   { -moz-transform: rotate(0deg); }
+  100%  { -moz-transform: rotate(-360deg); } 
+
+}
+
 
 #carbody{
 z-index: 10;
@@ -191,6 +264,14 @@ left: 255px;
 z-index: -10;
 -webkit-animation: slinkybounce .25s linear infinite;
 animation: slinkybounce .25s linear infinite;	
+-moz-animation: slinkybounce .25s linear infinite;	
+}
+@-moz-keyframes slinkybounce { 
+  0%   { bottom: 48px }
+  25%  { bottom: 47px; }  
+  60%   { bottom: 48px }
+  80%  { bottom: 49px; }  
+
 }
 @-webkit-keyframes slinkybounce { 
   0%   { bottom: 48px }
@@ -212,6 +293,12 @@ animation: slinkybounce .25s linear infinite;
   25%  { transform: rotate(.5deg); }  
   50%  { transform: rotate(0deg); }
   75%  { transform: rotate(-1deg); }
+}
+@-moz-keyframes carbounce { 
+  0%   { -moz-transform: rotate(0deg); }
+  25%  { -moz-transform: rotate(.5deg); }  
+  50%  { -moz-transform: rotate(0deg); }
+  75%  { -moz-transform: rotate(-1deg); }
 }
 @-webkit-keyframes carbounce { 
   0%   { -webkit-transform: rotate(0deg); }
