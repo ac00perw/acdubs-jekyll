@@ -62,7 +62,8 @@ namespace :deploy do
     #puts 'Compressing CSS/JS files...'
     #puts `find _site/css -name '*.css' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type css '{}' -o '{}' \\;`
     #puts `find _site/js -name '*.js' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type js '{}' -o '{}' \\;`
-    sh "rsync -rtz --exclude 'mp3' _site/  #{domain}"
+    sh "rsync -rtz _site/  #{domain}"
+    #sh "rsync -rtz --exclude 'mp3' _site/  #{domain}"
     #example will pull files down:
     # rsync -avz -e "ssh -p $portNumber" user@remoteip:/path/to/files/ /local/path/#{domain}/"
   end
