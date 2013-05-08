@@ -1,0 +1,56 @@
+---
+layout: blog
+title: HDHR Prime, MacBookPro, VLC and me
+permalink: /network/hdhr-prime-vlc/index.html
+id: network
+categories: [networking, 'hdhr prime']
+---
+<p><img src="/images/network/hdhr.jpg" width="30%" align="left"/>My primary means of serving TV to my MacBookPro is via MythTV, which has served me well for the past 5 or 6 years. 
+I recently acquired an <a href="http://amzn.com/B004HKIB6E">HDHR Prime</a> into which a CableCard can be plugged in. This eliminates the need for a settop box, 
+and the rather bizarre Linux Remote Control (LIRC) hoops one must dance through to "blast" infrared channel changing signals 
+from a Linux box. The HDHR Prime plus CableCard setup also upgraded my signal quality considerably.</p>
+<p>There are times, however, when MythTV is a bit bulky for my TV viewing needs (live events come to mind- 
+Saturday morning British Premier League soccer in this house). Enter <a href="http://www.videolan.org/index.html">VLC</a>.</p>
+<p>There are two ways to connect VLC to your Prime's stream: HTTP or UDP. I have had more stability with UDP, but I haven't
+played too much with the HTTP stream. To connect your Mac to your Prime via http is pretty simple. The stream URL looks like this:
+<pre>
+http://&lt;prime ip>:5004/&lt;tuner>/v&lt;channel>?duration=&lt;seconds>
+</pre>
+<p>
+<ul class="no-bullet">
+<li>&lt;prime ip> is the ip address of the prime</li>
+<li>&lt;tuner> is auto for auto select else tuner0, tuner1, or tuner2</li>
+<li>&lt;channel> is the virtual channel number - note the v that precedes it</li>
+<li>&lt;seconds> (optional is the length of time to stream</li>
+</ul></p>
+<p>Drop this into the Network URL on VLC (File, Open Network):</p>
+<img src="/images/network/vlc-network.jpg" />
+<p>Similarly, to connect via UDP, drop</p>
+<pre>udp://@:1234</pre>
+<p>into the Network URL box on VLC. This will tell VLC to look for an incoming UDP signal.
+ We will send the signal to it using the <a href="http://www.silicondust.com/support/hdhomerun/downloads/">hdhomerun_config</a> command line tool. That will look like this:</p>
+<pre>
+hdhomerun_config 111111A8 set /tuner0/target 192.168.1.5:1234;
+hdhomerun_config 111111A8 set /tuner0/vchannel 67;
+</pre>
+<p>The first line tells the Prime (the one with the unique ID 111111A8) to send it's signal to my IP address
+at port 1234 and the second line tells the Prime to tune to channel 67, which happens to be Comedy Central in my area. To make this slightly easier, I really geeked out and made a simple bash function to do all of this. As a hack, I made an <a href="/network/hdhr.m3u">.m3u playlist</a> which connects to the UDP stream. 
+I couldn't find a way to connect directly to the stream from the command line.</p>  
+<pre>
+tv() { 
+
+if [ ! "$(pgrep "VLC")" ]
+then
+	echo "Opening VLC...";
+	open /Applications/VLC.app/ ~/Documents/hdhr.m3u 
+	sleep 3;
+
+fi
+
+hdhomerun_config 131765A8 set /tuner0/target 192.168.1.5:1234;
+hdhomerun_config 131765A8 set /tuner0/vchannel $@;
+}
+</pre>
+<p>I stuck this script in my ~/.bash_profile. To call up Comedy Central, I just need to enter</p>
+<pre>tv 67</pre>
+<p>On the command line.</p>

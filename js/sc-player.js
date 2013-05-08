@@ -311,7 +311,7 @@
         // update the current track info in the player
         // log('updateTrackInfo', track);
         $('.sc-info', $player).each(function(index) {
-          $('h6', this).html('<a href="' + track.permalink_url +'">' + track.title + '</a>');
+          $('h2', this).html('<a href="' + track.permalink_url +'">' + track.title + '</a>');
           $('h4', this).html('by <a href="' + track.user.permalink_url +'">' + track.user.username + '</a>');
           $('p', this).html(track.description || 'no Description');
         });
@@ -487,7 +487,7 @@
         links = opts.links || $.map($('a', $source).add($source.filter('a')), function(val) { return {url: val.href, title: val.innerHTML}; }),
         $player = $('<div class="sc-player loading"></div>').data('sc-player', {id: playerId}),
         $artworks = $('<ol class="sc-artwork-list"></ol>').appendTo($player),
-        $info = $('<div class="sc-info"><h6></h6><h4></h4><p></p><a href="#" class="sc-info-close">X</a></div>').appendTo($player),
+        $info = $('<div class="sc-info"><h2></h2><h4></h4><p></p><a href="#" class="sc-info-close">X</a></div>').appendTo($player),
         $controls = $('<div class="sc-controls"></div>').appendTo($player),
         $list = $('<ol class="sc-trackslist"></ol>').appendTo($player);
 

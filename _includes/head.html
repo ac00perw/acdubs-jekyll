@@ -9,14 +9,14 @@
 	<link rel="stylesheet" href="/css/foundation.css" />
 	<link rel="stylesheet" href="/css/app.css" />
 	{% if page.id == "music" %}
-	<link rel="stylesheet" href="/css/sc-player-minimal.css" type="text/css" />	
+	<link rel="stylesheet" href="/css/sc-player-red.css" type="text/css" />	
 	{% endif %}
 
    	<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.transit.js"></script>
 	<script src="/js/vendor/custom.modernizr.js"></script>
-	<script type="text/javascript" src="/js/heads.js?7"></script>
 	<script type="text/javascript" src="//use.typekit.net/xed0uqy.js"></script>
+	
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	{% if page.id == "music" %}	
 	<script type="text/javascript" src="/js/soundcloud.player.api.js"></script>
@@ -33,7 +33,7 @@ $(document).ready(function(){
 
 	$.get("http://gdata.youtube.com/feeds/base/users/acooperw/uploads?orderby=updated&alt=json&format=5", function(data){
 		  var feed = data.feed;
-		  var out='<ul>';
+		  var out='<ul class="no-bullet">';
 		  var entries = feed.entry || [];
 			  for (var i = 0; i < entries.length; i++) {
 				var entry = entries[i];
@@ -43,7 +43,8 @@ $(document).ready(function(){
 				  out+='<li><a href="javascript:loadNew(\''+link[8]+'\')">' + title +'</a></li>';
 			  }
 		  out+="</ul>";
-		  $('#videos').hide().html(out).slideDown(100);
+		  
+		  $('#videos').html(out);
 		}, "jsonp");
 		
 });

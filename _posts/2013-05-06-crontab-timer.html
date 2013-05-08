@@ -1,0 +1,34 @@
+---
+layout: blog
+title: Poor Man's Crontab Timer
+permalink: /network/crontab-timer/index.html
+id: network
+categories: [networking, X10, ubuntu]
+---
+<p>With a Linux box in the basement, a firecracker X10 device, an X10 Appliance Module, and some grow lights, 
+you too can have a poor-man's timer for starting seedlings. Sure timers only cost $20 bucks, but isn't hacking one more fun?</p>
+<p>Start with <a href="http://www.heyu.org">Heyu software</a>. If you are dabbling with X10 and don't have Heyu, you're in for a treat. Heyu will let
+you get all Bill Gates Home Automatey with very little money. To get Ubuntu/linux to talk to your lamps and whatnot, you'll also need the cm17a, 
+the serial port X10 transceiver, or it's younger USB brother, the cm19a.</p>
+<p><img class="right" src="/images/network/lampmodule.jpg" />I have a few modules hooked up to random lights around the house, and we use one on the Christmas Tree for the holidays.
+It's simple to get Heyu to talk your modules through the electrical wires.</p>
+<p>Note: My cm17a which is the serial port device that communicates to X10's various modules is NOT plugged into my serial port, but 
+attached to a serial -> USB adapter. I've seen various reports of success/failure with this type of device so you mileage may vary.
+Personally, it has not been a problem. In my Heyu config file, I'm pointing to my device 'by-id' (this is all one line):</p>
+<pre>
+TTY	/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0
+</pre>
+<p>Ubuntu tends to load USB devices in a random order. Once you have this properly configured, you should be able to control
+your lights from the command line using the device ID you set on each specific module (note the preceding 'F' for firecracker specific
+commands):</p>
+<pre>heyu fon a1; heyu foff a2</pre>
+<p>Boom. I just turned on the grow lights, and turned off my bedside lamp. I wanted the lights for the seedlings to emulate the sun somewhat
+so they'd go on around 8am and go off around 6pm. From here, the cron job practically writes itself:</p>
+<pre>
+# m h  dom mon dow   command
+0 8 * * * /usr/local/bin/heyu fon a1
+0 18 * * * /usr/local/bin/heyu foff a1
+</pre>
+<p><a class="radius" href="/images/network/elby.jpg"><img class="left" src="/images/network/elby.jpg" width="25%"/></a>
+And finally no- we're not growing weed. Not even catnip. Elby prefers to chew the pepper leaves! And this small tree (picture left)
+that consistently induces vomit.</p> 

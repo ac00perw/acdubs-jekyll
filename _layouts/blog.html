@@ -1,0 +1,40 @@
+{% include head.html %}
+<body>
+<div id="page" class="row">
+	<div id="deadscene"><img src="/images/slinky-bw.jpg" /></div>
+	{% include nav.html %}
+	<h1 class="pagetitle">{{ page.title }}</h1>
+	<div class="large-9 columns">
+
+		<p>{{ content }}</p>
+	</div>
+	<div class="large-3 columns">	
+			<!-- h6>TV/Networking posts</h6>	
+		    <ul class="no-bullet">
+		    {% for post in site.posts %}
+			  <li>&raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+			{% endfor %}
+			</ul -->
+			<p><a href="/tech-specs">Tech Specs/Hardware List</a></p>
+			{% for category in site.sorted_categories %}
+			<h6>Posts about '{{ category | first }}'</h6>
+			<ul>
+			{% for post in category.last %}
+			<li><a href="{{ post.url }}">'{{ post.title }}'</a></li>
+			{% endfor %}
+			</ul>
+			{% endfor %}
+			
+
+	</div>
+</div>
+</div>
+<div class="row">
+	  {% include footer.html %}
+</div>
+
+
+{% include bottomscripts.html %}
+
+</body>
+</html>

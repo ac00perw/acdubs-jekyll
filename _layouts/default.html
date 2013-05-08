@@ -67,10 +67,10 @@
 	{% else %}
 	<div id="deadscene"><img src="/images/slinky-bw.jpg" /></div>
 	{% endif %}
-			{% include nav.html %}
-		<div class="twelve columns">
+		{% include nav.html %}
+		<div class="large-12 columns">
 			{% if page.id != 'home' %}
-			<h1>{{ page.title }}</h1>
+			<h1 class="pagetitle">{{ page.title }}</h1>
 			{% endif %}
 			<div id="contentwrapper" class="row">
 				<div class="node large-twelve columns">
