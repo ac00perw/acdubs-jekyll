@@ -12,27 +12,27 @@
     <section class="top-bar-section">
     <ul class="left">
 		  <li class="divider"></li>
-  		<li class="has-dropdown"><a href="/music">Music</a>
+  		<li class="has-dropdown {% if page.url contains "/music/" %}active"{% endif %}"><a href="/music">Music</a>
   				<ul class="dropdown">
 				  <li><a href="/music">General Music</a></li>
 				  <li><a href="/music/c-funk">C-Funk - Shitcan Noisebelt</a></li>
 				</ul>
   		  </li>
           <li class="divider"></li>
-          <li><a href="/blog">Blog</a></li>
+          <li {% if page.url contains "/blog/" %}class="active"{% endif %}><a href="/blog">Blog</a></li>
           <li class="divider"></li>
-          <li><a href="/tweets">Tweets</a></li>
+          <li {% if page.url contains "/tweets/" %}class="active"{% endif %}><a href="/tweets">Tweets</a></li>
           <li class="divider"></li>
-          <li><a href="/shaving">Shaving</a></li>
+          <li  {% if page.url contains "/shaving/" %}class="active"{% endif %}><a href="/shaving">Shaving</a></li>
 
           <li class="divider"></li>
-          <li><a href="/video">Video</a></li>
+          <li  {% if page.url contains "/video/" %}class="active"{% endif %}><a href="/video">Video</a></li>
           <li class="divider"></li>
-          <li><a href="/recipes">Recipes</a></li>
+          <li  {% if page.url contains "/recipes/" %}class="active"{% endif %}><a href="/recipes">Recipes</a></li>
           <li class="divider"></li>
-          <li><a href="/tvsports">Sports</a></li>
+          <li {% if page.url contains "tvsports" %}class="active"{% endif %}><a href="/tvsports">Sports</a></li>
           <li class="divider"></li>
-          <li><a href="/about">About</a></li>
+          <li {% if page.url contains "about" %}class="active"{% endif %}><a href="/about">About</a></li>
           <li class="divider"></li>
     </ul>
     </section>
