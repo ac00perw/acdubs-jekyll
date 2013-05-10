@@ -1,12 +1,12 @@
 ---
 layout: default
-title: TV / Network Posts
+title: TV / Networking Posts
 ---
 <div class="row">
 	<div class="large-8 columns">
-	<h1>Latest Blog Posts</h1>
 		<ul class="square">
-			{% for post in site.posts %}
+		
+			{% for post in site.categories.networking %}
 			  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 			{% endfor %}
 		</ul>
@@ -15,12 +15,16 @@ title: TV / Network Posts
 	<p><a href="/tech-specs">Tech Specs/Hardware List</a></p>
 	<h1>Posts by category</h1>
 		{% for category in site.sorted_categories %}
+	
+			{% unless site.category.first == 'shaving' %}
 			<h6>{{ category | first }}</h6>
 			<ul>
 				{% for post in category.last %}
 				<li><a href="{{ post.url }}">'{{ post.title }}'</a></li>
 				{% endfor %}
 			</ul>
+		{% endunless %}
+
 		{% endfor %}
 	</div>
 </div>

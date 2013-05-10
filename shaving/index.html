@@ -1,0 +1,18 @@
+---
+layout: default
+title: Shaving with a Safety Razor
+permalink: /shaving/index.html
+id: shaving
+---
+<p><img align="left" src="/images/jagger.jpg" width="25%"/>Info about safety razors, shaving Gillette-free, understanding that multiple blades does not mean better shave 
+(the first blades are not lifting your beard up while the the rest of them shave you!), and some price
+comparisons to shaving with cartridges vs. safety razors with links to prices on Amazon 
+and <a href="http://leesrazors.com">Lee's Razors</a> (Edwin Jagger handle pictured- I bought mine at Lee's) are coming.</p> 
+
+	<div class="large-4 column offset-by-two">
+		<ul class="square ">
+		{% for post in site.categories.shaving %}
+		  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
+		</ul>
+	</div>

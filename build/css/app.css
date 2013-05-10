@@ -1,0 +1,397 @@
+body{
+background: url(/images/wood_bg.jpg);
+font-family: "futura-pt", "Arial", sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: "adelle", serif;
+}
+h1{
+font-size: 1.5em;
+}
+.pagetitle {
+padding: 10px 0 10px 0;
+margin-top: 15px;
+font-size: 1.7em;
+}
+a{
+color: #c06d24;
+}
+a:hover{
+color: #854c19;
+}
+.top-bar{
+background: url(/images/wood2.jpg);
+outline: 1px solid #999;
+margin-bottom: 0;
+}
+.top-bar-section ul{
+background: none;
+}
+.top-bar-section ul li > a {
+font-size: 1.1em;
+font-weight: normal;
+text-shadow: 1px 1px 2px #000;
+letter-spacing: .1em;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.top-bar-section li a:not(.button){
+background: rgba(1,1,1,.6);
+}
+.top-bar-section li a:not(.button):hover{
+/*background: url(/images/wood2.jpg) 100px 100px;*/
+background-color: rgba(1,1,1,.2);
+color: #ffcc00;
+text-shadow: 1px 1px 2px #111;
+}
+.top-bar-section li.active a:not(.button):hover{
+background: #333;
+color: #efefef;
+}
+.top-bar-section li a:not(.button):active{
+
+}
+.top-bar .name h1 {
+font-size: 1.1em;
+text-shadow: 1px 1px #000;
+}
+.music-nav {
+margin-left: 30%;
+}
+
+.top-bar-section li a:not(.button):hover{
+ background-position: 0 45px;
+}
+
+#page{
+margin-top: 10px;
+background: rgba(225,225,225,.75);
+outline: 1px solid #000;
+padding: 10px;
+}
+#page p img{
+margin: 10px;
+}
+
+#tree, #tree2, #tree3{
+position: absolute;
+width: 469px;
+bottom: 50px;	
+z-index: 3;
+}
+#tree{
+-webkit-animation: zoomby 2s linear infinite;
+animation: zoomby 2s linear infinite;
+-moz-animation: zoomby 2s linear infinite;
+bottom: 30px;	
+
+}
+#tree2{
+-webkit-animation: zoomby2 2.1s linear infinite;
+-moz-animation: zoomby2 2.1s linear infinite;
+animation: zoomby2 2.1s linear infinite;
+}
+
+@-webkit-keyframes zoomby2 { 
+  0%   { left: -1300px; }
+  100%  { left: 1300px }
+}
+@keyframes zoomby2 { 
+  0%   { left: -1300px; }
+  100%  { left: 1300px }
+}
+@-moz-keyframes zoomby2 { 
+  0%   { left: -1300px; }
+  100%  { left: 1300px }
+}
+@-webkit-keyframes zoomby { 
+  0%   { left: -1100px; }
+  100%  { left: 1100px }
+}
+@keyframes zoomby { 
+  0%   { left: -1100px; }
+  100%  { left: 1100px }
+}
+@-moz-keyframes zoomby { 
+  0%   { left: -1100px; }
+  100%  { left: 1100px }
+}
+#tree3{
+-moz-animation: tree3z 2.15s linear infinite;
+-webkit-animation: tree3z 2.15s linear infinite;
+animation: tree3z 2.15s linear infinite;
+}
+@-webkit-keyframes tree3z { 
+  0%   { left: -1400px; }
+  100%  { left: 1100px }
+}
+@keyframes tree3z { 
+  0%   { left: -1400px; }
+  100%  { left: 1100px }
+}
+@-moz-keyframes tree3z { 
+  0%   { left: -1400px; }
+  100%  { left: 1100px }
+}
+
+
+#road{
+position: absolute;
+z-index: 5;
+height: 50px;
+width: 100%;
+background: #333;
+bottom: 0;
+}
+
+#guardrail{
+position: absolute;
+height: 92px;
+width: 3000px;
+background: url(/images/guardrail.png) repeat-x;
+bottom: 50px;
+-webkit-animation: rail .25s linear infinite;
+animation: rail .25s linear infinite;	
+-moz-animation: rail .25s linear infinite;	
+z-index: 19;
+}
+@-webkit-keyframes rail { 
+  0%   { left: -500px; }
+  100%  { left: -96px }
+}
+@keyframes rail { 
+  0%   { left: -300px; }
+  100%  { left: 0px }
+}
+@-moz-keyframes rail { 
+  0%   { left: -300px; }
+  100%  { left: 0px }
+}
+
+#deadscene{
+border: 1px solid #333;
+display: block;
+}
+
+#scene{
+display: block;
+position: relative;
+height: 320px;
+width: 100%;
+border: 1px solid #333;
+overflow-x: hidden;
+background: url(/images/scenebg.jpg) no-repeat 0  0;
+-webkit-animation: scenemove 100s linear infinite;	
+animation: scenemove 100s linear infinite;	
+-moz-animation: scenemove 100s linear infinite;	
+}
+@-webkit-keyframes scenemove { 
+  0%   { background-position: -300px 0; }
+  100%  { background-position: 0 0; }
+}
+@-moz-keyframes scenemove { 
+  0%   { background-position: -300px 0; }
+  100%  { background-position: 0 0; }
+}
+@keyframes scenemove { 
+  0%   { background-position: -300px 0; }
+  100%  { background-position: 0 0; }
+}
+
+#elbycar{
+width: 500px;
+position: absolute;
+bottom: 40px;
+left: 30%;
+z-index: 19;
+-moz-animation: mdriveon 28s linear infinite;
+-webkit-animation: mdriveon 28s linear infinite;
+animation: mdriveon 28s linear infinite;	
+}
+#elby{
+width: 100px;
+position: absolute;
+bottom: 46px;
+left: 270px;
+z-index: -10;
+-webkit-animation: slinkybounce .25s linear infinite;
+animation: slinkybounce .25s linear infinite;	
+-moz-animation: slinkybounce .25s linear infinite;	
+}
+
+
+#mowglicar{
+width: 500px;
+position: absolute;
+bottom: 25px;
+left: 5%;
+z-index: 20;
+-moz-animation: mdriveon 35s linear infinite;
+-webkit-animation: mdriveon 35s linear infinite;
+animation: mdriveon 35s linear infinite;	
+}
+@-webkit-keyframes mdriveon { 
+  0%   { left: 2000px; }
+
+  100%  { left: -2000px;  }
+}
+@keyframes mdriveon { 
+  0%   { left: 2000px; }
+
+  100%  { left: -2000px;  }
+}@-moz-keyframes mdriveon { 
+  0%   { left: 2000px; }
+
+  100%  { left: -2000px;  }}
+#mowgli{
+width: 100px;
+position: absolute;
+bottom: 48px;
+left: 255px;
+z-index: -10;
+-webkit-animation: slinkybounce .25s linear infinite;
+animation: slinkybounce .25s linear infinite;	
+-moz-animation: slinkybounce .25s linear infinite;	
+}
+
+#car{
+width: 500px;
+position: absolute;
+bottom: 5px;
+left: 50%;
+/* -webkit-animation: driveon 5s linear 1; */
+	-moz-animation: sdriveon 15s linear infinite;
+	-webkit-animation: sdriveon 15s linear infinite;
+	animation: sdriveon 15s linear infinite;	
+z-index: 20;
+}
+
+#wheel1{
+position:absolute;
+bottom: 15px;
+left: 55px;
+animation: wheels .25s linear infinite;
+-webkit-animation: wheels .25s linear infinite;
+-moz-animation: wheels .25s linear infinite;
+}
+#wheel2{
+position:absolute;
+bottom: 15px;
+left: 353px;
+animation: wheels .25s linear infinite;
+-webkit-animation: wheels .25s linear infinite;
+-moz-animation: wheels .25s linear infinite;
+}
+#mowglicar #wheel2, #elbycar #wheel2{
+left: 357px;
+}
+@keyframes wheels { 
+  0%   { -webkit-transform: rotate(0deg); }
+  100%  { -webkit-transform: rotate(-360deg); } 
+
+}
+@-webkit-keyframes wheels { 
+  0%   { -webkit-transform: rotate(0deg); }
+  100%  { -webkit-transform: rotate(-360deg); } 
+
+}
+@-moz-keyframes wheels { 
+  0%   { -moz-transform: rotate(0deg); }
+  100%  { -moz-transform: rotate(-360deg); } 
+
+}
+
+
+#carbody{
+z-index: 10;
+}
+#slinky{
+width: 100px;
+position: absolute;
+bottom: 48px;
+left: 255px;
+z-index: -10;
+-webkit-animation: slinkybounce .25s linear infinite;
+animation: slinkybounce .25s linear infinite;	
+-moz-animation: slinkybounce .25s linear infinite;	
+}
+@-moz-keyframes carbounce { 
+  0%   { bottom: 48px }
+  25%  { bottom: 47px; }  
+  60%   { bottom: 47px }
+  80%  { bottom: 49px; }  
+
+}
+@-webkit-keyframes slinkybounce { 
+  0%   { bottom: 48px }
+  25%  { bottom: 47px; }  
+  60%   { bottom: 47px }
+  80%  { bottom: 49px; }  
+
+}
+@keyframes slinkybounce { 
+  0%   { bottom: 48px }
+  25%  { bottom: 47px; }  
+  60%   { bottom: 47px }
+  80%  { bottom: 49px; }  
+
+}
+
+@-moz-keyframes sdriveon { 
+  0%   { left: 50%; }
+  25%  { left: 49%; }  
+  100%  { left: 50%; }  
+
+}
+@-webkit-keyframes sdriveon { 
+  0%   { left: 50%; }
+  25%  { left: 49%; }  
+  100%  { left: 50%; }  
+
+}
+@keyframes sdriveon { 
+  0%   { bottom: 48px }
+  25%  { bottom: 47px; }  
+  60%   { bottom: 47px }
+  80%  { bottom: 49px; }  
+
+}
+.tweet{
+margin-bottom:20px;
+padding: 10px;
+}
+
+ol.sc-trackslist li a{
+font-size: 1.2em;
+font-weight: normal;
+}
+#sports ul li{
+border-right: 1px dotted #333;
+margin-bottom: 10px;
+}
+#sports ul li:nth-child(3n+3){
+border: none;
+}
+#sports .details{
+font-size: .8em;
+color: #333;
+}
+.icon{
+float: left;
+height: 100px;
+padding: 5px;
+}
+.replay{
+background: rgba(0, 0, 0,.3);
+}
+
+pre{
+border: 1px solid #000;
+background: rgba(20,20,20,.6);
+color: #00ff00;
+padding: 5px;
+margin: 10px;
+line-height: 130%;
+}
