@@ -1,0 +1,32 @@
+---
+layout: blog
+title: Setting Up Your SSH Tunnel
+permalink: /blog/ssh-tunnels/index.html
+id: network
+categories: [Networking, SSH, DD-WRT]
+---
+<p>There are time I wish I had could get a second opinion about DNS resolution at work, and 
+times when I simply want to check in on my home network (are the kids playing Minecraft instead of 
+finishing homework?). Nothing makes 
+this easier than an SSH tunnel. An SSH tunnel is a secure path to a remote network. In fact, if you set up 
+a proxy in your favorite web browser to your DD-WRT router at home, you can access your home web server.</p>
+<p>I have an alias set up on my machine that looks something like this:</p>
+<pre class="prettyprint">
+alias phonehome='killall ssh;ssh -p [remote port] -D [local port] -f -C -N  [server user]@[server address]'
+</pre>
+<p>At any moment I can drop to a command line and type 'phonehome,' and this little command will kill all previous
+instances of SSH that were running (you may not want that, but being forgetful I used to accidentally leave on multiple
+tunnels), and SSH into the server with a persistent connection.  After you enter your password, you will be returned
+to your command prompt. What? Yeah- it's working. Use ps ax to prove it:</p>
+<pre class="prettyprint">
+$ ps ax | grep ssh
+ 5939   ??  S      0:03.19 /usr/bin/ssh-agent -l
+13565   ??  Ss     0:00.00 ssh -p 22 -D 7880 -f -C -N adam@myserver.org
+13567 s000  R+     0:00.00 grep ssh
+</pre>
+<p>As you can see, process 13565 lists the connection to my server. You might want to consider using SSH keys for this, too
+so you are not required to type your password every time. Once the tunnel is in place, 
+using it with your browser is a matter of setting up your proxy. In Firefox under Preferences/Advanced/Network it looks like this:</p>
+<img src="/images/network/sshtunnel.jpg" />
+<p>Your <a href="http://en.wikipedia.org/wiki/SOCKS">SOCKS v5</a> proxy host will be your local computer, so in most cases 127.0.0.1
+should suffice. The local port in our example is 7880. I also highly recommend changing your remote server's port from the default 22.</p> 

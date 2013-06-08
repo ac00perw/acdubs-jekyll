@@ -1,0 +1,30 @@
+---
+layout: blog
+title: DD-WRT, VPN, OSX Made Easy
+permalink: /blog/dd-wrt-vpn-setup/index.html
+id: network
+categories: [Networking, DD-WRT]
+---
+<p>Setting up a Virtual Private Network using a router running DD-WRT is easy. On a Buffalo router, 
+start by navigating to /PPTP.asp in the web-based admin (Services/VPN). Click 'enable' on the VPN. At
+this point, some people might suggest pressing 'Apply Settings' at the bottom, but I was able to set
+all my parameters at once and then press 'Apply Settings.' The following settings worked for me:
+	<ul>
+		<li>MPPE Encryption: Enabled</li>
+		<li>Server IP: 10.1.1.1 (this is my router's IP)</li>
+		<li>Client IP(s): 10.1.1.100-110</li>
+		<li>Authentication: Local User Management (CHAP secrets)</li>
+		<li>CHAP Secrets: username * password *</li>
+	</ul>
+</p>
+<img src="/images/network/ddwrt-pptp.jpg" />
+<p>Note the format of the 'CHAP secrets' section. This is important. And you might consider using
+trickier credentials, too :) </p>
+<p>To set this up on OSX that's obviously outside your home network: in System Preferences/Network, 
+Click the '+' to add a network, and choose VPN.
+Select PPTP as type, and use the default name or pick a new name for this connection and hit apply.</p>
+<img src="/images/network/ddwrt-vpnsetup.jpg" />
+<p>You'll be able to connect from this screen or from the icon in the top right corner. When you're connected
+you'll have the option of running all network data through this connection effectively using your
+home router as your Internet connection. This also gives you secure access to any computer on your home
+network via SSH, VNC/Screen Sharing, and I imagine AFP, too, but I've never tried it.</p>

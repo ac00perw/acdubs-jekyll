@@ -1,0 +1,63 @@
+---
+layout: blog
+title: Changing channels on your HDHR Prime Via Mythweb
+permalink: /blog/mythweb-hdhrprime/index.html
+id: network
+categories: [Networking, Mythtv, HDHR Prime, VLC, webserver]
+---
+<p>In an <a href="/network/hdhr-prime-vlc">earlier post</a>, I explained how I use VLC to watch TV instead of MythTV due to the overhead of MythTV on
+OSX. VLC streams TV beautifully, and as long as I don't have an upcoming recording, everything works out
+fine. I also added a 'play' button to the Mythweb TV listings which communicates to the HDHR Prime and
+tells it which channel to stream. It's quite easy. Here's how I do it.</p>
+<p>I imagine if you're running Mythweb, you already have a working web server with PHP installed on it.
+If you do, adding this code to index.php in a folder called /changechannel in your web folder should work just fine:
+</p>
+<pre class="prettyprint">
+&lt;?php
+$st=(int)$_GET['st'];
+shell_exec("/usr/bin/hdhomerun_config 131HDHRA3 set /tuner0/vchannel ".$st);
+?>
+</pre>
+<p>This will simply execute the shell command used to change the channel. Now you can change the channel
+in a browser:</p>
+<pre class="prettyprint">http://serverip/changechannel?st=125</pre>
+<p>Note- so can everybody else unless you password protect this directory! You might want to <a href="http://httpd.apache.org/docs/2.2/programs/htpasswd.html">do that</a> and then call:</p>
+<pre class="prettyprint">http://myuser:mypass@serverip/changechannel?st=125</pre>
+<p>Adding a call to this file becomes as simple as a javascript function which calls our previous page.
+The file we're looking to hack is /var/www/mythweb/modules/tv/tmpl/default/list_data.php</p> 
+<p>At the end of this file, I added a small script to perform the AJAX request:</p>
+<pre class="prettyprint lang-js_lang linenums">
+&lt;script type="text/javascript">
+
+function getChan(num){
+var xmlhttp;
+
+if (window.XMLHttpRequest){
+	// code for IE7+, Firefox, Chrome, Opera, Safari
+	xmlhttp=new XMLHttpRequest();
+  }else{
+    // code for IE6, IE5
+	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function(){
+
+if (xmlhttp.readyState==4 && xmlhttp.status==200){
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+  }
+}
+
+xmlhttp.open("GET","http://serverip/changechannel/?st="+ num,true);
+xmlhttp.send();
+}
+&lt;/script>
+</pre>
+<p>Boom. Then add a call to that function after the icon/number on the listing. I put mine in around line 97 which is right after the closing
+'a' tag and before the closing 'td' for that channel:</p>
+<pre class="prettyprint">
+&lt;a href="javascript:getChan('&lt;?php echo $channel->channum ?>')" target="tvch">play&lt;/a>
+</pre> 
+<p>When all is said and done, you should have a button below all of your channels with a button to play it. Note, this script will not
+open VLC, so it's assuming you've already got it open perhaps with the command line.</p>
+<img src="/images/network/chanmythweb.jpg" />
+<p>NOTE: hacking Mythweb like this is NOT revision friendly. If Mythweb gets updated in the future, you'll have to re-hack
+it. This may also fall into legal gray area as I'm technically not using my listings data with MythTV. Use at your own risk!</p>

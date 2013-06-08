@@ -12,18 +12,13 @@
 		{% include disqus.html %}
 	</div>
 	<div class="large-3 columns">	
-			<!-- h6>TV/Networking posts</h6>	
-		    <ul class="no-bullet">
-		    {% for post in site.posts %}
-			  <li>&raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-			{% endfor %}
-			</ul -->
+
 			<p><a href="/tech-specs">Tech Specs/Hardware List</a></p>
-			{% for category in site.sorted_categories %}
+			{% for category in site.sorted_categories limit: 7 %}
 			<h6>Posts about '{{ category | first }}'</h6>
 			<ul>
-			{% for post in category.last %}
-			<li><a href="{{ post.url }}">'{{ post.title }}'</a></li>
+			{% for post in category.last limit: 7 %}
+			<li><a href="{{ post.url | replace: 'index.html', '' }}">{{ post.title }}</a></li>
 			{% endfor %}
 			</ul>
 			{% endfor %}

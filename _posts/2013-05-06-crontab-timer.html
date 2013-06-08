@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Poor Man's Crontab-based plant Timer
-permalink: /network/crontab-timer/index.html
+permalink: /blog/crontab-timer/index.html
 id: network
 categories: [networking, X10, ubuntu]
 ---
@@ -15,16 +15,16 @@ It's simple to get Heyu to talk your modules through the electrical wires.</p>
 <p>Note: My cm17a which is the serial port device that communicates to X10's various modules is NOT plugged into my serial port, but 
 attached to a serial -> USB adapter. I've seen various reports of success/failure with this type of device so you mileage may vary.
 Personally, it has not been a problem. In my Heyu config file, I'm pointing to my device 'by-id' (this is all one line):</p>
-<pre>
+<pre class="prettyprint">
 TTY	/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0
 </pre>
 <p>Ubuntu tends to load USB devices in a random order. Once you have this properly configured, you should be able to control
 your lights from the command line using the device ID you set on each specific module (note the preceding 'F' for firecracker specific
 commands):</p>
-<pre>heyu fon a1; heyu foff a2</pre>
+<pre class="prettyprint">heyu fon a1; heyu foff a2</pre>
 <p>Boom. I just turned on the grow lights, and turned off my bedside lamp. I wanted the lights for the seedlings to emulate the sun somewhat
 so they'd go on around 8am and go off around 6pm. From here, the cron job practically writes itself:</p>
-<pre>
+<pre class="prettyprint">
 # m h  dom mon dow   command
 0 8 * * * /usr/local/bin/heyu fon a1
 0 18 * * * /usr/local/bin/heyu foff a1

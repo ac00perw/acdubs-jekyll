@@ -16,6 +16,8 @@
 # update options and server names to actually make it work!
 
 devssh= "c00p@ve:/var/www/acdubs.com/html/"
+prodssh= "c00p@ve:/var/www/acdubs.com/html/"
+#prodssh= "pi@10.1.1.60:/var/www/"
 
 def jekyll(opts="", path="")
   sh "rm -rf _site"
@@ -48,10 +50,12 @@ namespace :deploy do
     rsync "#{devssh}"
   end
   
-  desc "Deploy to Live: #{devssh}"
+  
+  
+  desc "Deploy to Live: #{prodssh}"
   task :live => :build do
     puts "Deploying to live"
-    rsync "#{devssh}"
+    rsync "#{prodssh}"
   end
   
 #  desc "Deploy to Dev and Live"
@@ -61,9 +65,9 @@ namespace :deploy do
     
     
     puts 'Compressing CSS files...'
-    puts `find _site/css -name '*.css' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type css '{}' -o '{}' \\;`
-    puts 'Compressing JS files...'
-    puts `find _site/js -name '*.js' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type js '{}' -o '{}' \\;`
+    sh "java -jar ./_lib/yuicompressor-2.4.7.jar _site/css/app.css -o _site/css/app.css"
+#    puts 'Compressing JS files...'
+#    puts `find _site/js -name '*.js' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type js '{}' -o '{}' \\;`
  	puts "rsync starting..."
     sh "rsync -rtz --delete _site/  #{domain}"
     #sh "rsync -rtz --exclude 'mp3' _site/  #{domain}"
