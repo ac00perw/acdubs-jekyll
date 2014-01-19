@@ -1,0 +1,52 @@
+---
+layout: blog
+title: Building an M3U Playlist in PHP
+permalink: /blog/m3u-playlist/index.html
+id: playlist
+categories: [Networking, VLC, HDHR, MythTV]
+---
+<p>Since my last post about using HDHR in VLC, I've upgraded the firmware to 2013-12-12 (the latest as of this writing). This new firmware
+seems to be a lot more stable for http streaming. If that's the case, why not build out an .m3u playlist listing
+all of the channels I subscribe to that pulls in what's playing on open? Give this a try by pressing CMD N in VLC and typing your
+HDHR Prime's IP in the box as well as the channel you want to stream.</p>
+<img src="/images/network/vlc-m3u.png" />
+<p>This should send a beautifully stable stream of television to VLC.</p>
+<img src="/images/network/vlc-m3u-sc.png" />
+<p>Cool. Let's build out a playlist using PHP. The format needs to look like this:</p>
+<pre class="prettyprint">
+#EXTM3U
+
+#EXTINF:-1,Channel Number - Call Sign Program Title
+http://&lt;a stream's url >
+
+#EXTINF:-1,Channel Number - Call Sign Program Title
+http://&lt;a stream's url >
+
+</pre>
+<p>This will translate to something like this:</p>
+<img src="/images/network/vlc-m3u-playlist.png" />
+<p>You will obviously need to connect to the MythTV database and may potentially violate your TOS for your listings provider if you add the program that is playing (there are many sources for retrieving your channels and call signs). I like to use <a href="http://sourceforge.net/projects/phplib/">PHPLib</a> to connect to a database, but there are many ways.</p>
+<pre class="prettyprint">
+&lt;php
+
+//add these to make your php file a downloadable m3u. 
+//Without this VLC won't know how to process it.
+header('Content-Type: audio/x-mpegurl');
+header("Content-Transfer-Encoding: Binary"); 
+
+$q="select c.channum, c.callsign, p.title, p.subtitle from channel c left join program p on c.chanid=p.chanid where c.visible='1' and (CONVERT_TZ(p.starttime, 'UTC', 'America/New_York') <= NOW() and CONVERT_TZ(p.endtime, 'UTC', 'America/New_York') > NOW()) group by c.chanid order by c.chanid";
+
+$db->query($q);
+$out=array("#EXTM3U".$lb);
+
+while ($db->next_record()){
+	$r=$db->Record;
+	$o= "#EXTINF: -1, ". $r['channum'] ." - ".$r['callsign']." ".$r['title'];
+	if ($r['subtitle']) { $o.=" -- ". $r['subtitle']; }
+	$o.=$lb."http://&lt; hdhr ip >:5004/tuner0/v".$r['channum']."?duration=100".$lb;
+	$out[]=$o;
+}
+
+print implode("\r\n", $out);
+?>
+</pre>
