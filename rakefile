@@ -16,7 +16,7 @@
 # update options and server names to actually make it work!
 
 devssh= "mc@noisebelt.com:/var/www/acdubs.com/"
-prodssh= "c00p@ve:/var/www/acdubs.com/html/"
+prodssh= "c00p@acve:/var/www/acdubs.com/html/"
 #prodssh= "pi@10.1.1.60:/var/www/"
 
 def jekyll(opts="", path="")
