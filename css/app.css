@@ -21,7 +21,7 @@ color: #854c19;
 }
 .top-bar{
 background: url(/images/wood2.jpg);
-outline: 1px solid #999;
+border: 1px solid #999;
 margin-bottom: 0;
 }
 .top-bar-section ul{
