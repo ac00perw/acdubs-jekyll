@@ -8,7 +8,8 @@ ErrorDocument 404 /404/index.html
   Redirect 301 /network/mythweb-hdhrprime /blog/mythweb-hdhrprime
   Redirect 301 /network/ssh-tunnels /blog/ssh-tunnels
   
-  Options +FollowSymlinks
+#  Options +FollowSymlinks
+Options -Indexes
   RewriteEngine On
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
