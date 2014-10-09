@@ -386,6 +386,12 @@ padding: 5px;
 .replay{
 background: rgba(0, 0, 0,.3);
 }
+.dropdown li{
+	line-height: 10px;
+}
+.top-bar-section li a:not(.button){
+
+}
 /*
 pre{
 border: 1px solid #000;
