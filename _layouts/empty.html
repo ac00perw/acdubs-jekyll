@@ -1,0 +1,22 @@
+{% include head.html %}
+<body>
+<div id="page" class="row">
+
+		<div class="large-12 columns">
+			{% if page.id != 'home' %}
+			<h1 class="pagetitle">{{ page.title }}</h1>
+			{% endif %}
+			<div id="contentwrapper" class="row">
+				<div class="node large-twelve columns">
+					 {{ content }}
+				</div>
+			</div>
+		</div>
+</div>
+<div class="row">
+	  {% include footer.html %}
+</div>
+{% include bottomscripts.html %}
+
+</body>
+</html>
