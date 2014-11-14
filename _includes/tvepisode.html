@@ -1,14 +1,22 @@
-	<tr rowspan="2">
-		<td>phtoo</td>
-	</tr>
-	<tr>
-		<td><?php print $k->airdate; ?> <?php print $k->airs; ?></td>
-		<td>S<?php print $k->season."E".$k->episode; ?></td>
-	</tr>
-	<tr>
-		<td><?php print $k->show_name; ?></td>
-		<td><?php print $k->ep_name; ?></td>
-	</tr>
-	<tr>
-		<td colspan=2><?php print $k->ep_plot; ?></td>
-	</tr>
+<div class="row">
+	<div class="large-2 columns">
+		<img src="http://thetvdb.com/banners/posters/<?php print $k->tvdbid; ?>-1.jpg" width="150"/>
+	</div>
+	<div class="large-10 columns">
+		<table width="100%">
+			<tr>
+				<td><?php print $k->show_name. ": ".$k->ep_name; ?></td>
+				<td>S<?php print $k->season."E".$k->episode; ?></td>
+				<td>S<?php print $k->network; ?></td>
+			</tr>			
+			<tr>
+				<td colspan=3><?php print $k->airdate; ?> <?php print $k->airs; ?></td>
+
+			</tr>
+			<tr>
+				<td colspan=3><?php print $k->ep_plot; ?></td>
+			</tr>
+		</table>
+	</div>
+
+</div>
