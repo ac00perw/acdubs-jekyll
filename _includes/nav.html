@@ -22,9 +22,13 @@
           <li  {% if page.url contains "/shaving/" %}class="active"{% endif %}><a href="/shaving">Shaving</a></li>
           <li  {% if page.url contains "/video/" %}class="active"{% endif %}><a href="/video">Video</a></li>
           <li  {% if page.url contains "/recipes/" %}class="active"{% endif %}><a href="/recipes">Recipes</a></li>
-		 <li  {% if page.url contains "/tech-specs/" %}class="active"{% endif %}><a href="/tech-specs">Toys</a></li>
-          <li class="{% if page.url contains "about" %}active{% endif %}"><a href="/about">About</a></li>
-		 <li  {% if page.url contains "/contact/" %}class="active"{% endif %}><a href="/contact">Contact</a></li>
+		  <li  {% if page.url contains "/tech-specs/" %}class="active"{% endif %}><a href="/tech-specs">Toys</a></li>
+		  <li  {% if page.url contains "/tv/" %}class="active"{% endif %}><a href="/tv">Television</a></li>
+          <li class="{% if page.url contains "about" %}active{% endif %} has-dropdown"><a href="/about">About</a>
+			  <ul class="dropdown">
+			  	<li  {% if page.url contains "/contact/" %}class="active"{% endif %}><a href="/contact">Contact</a></li>
+			  </ul>
+	  	  </li>
     </ul>
     </section>
 </ul>

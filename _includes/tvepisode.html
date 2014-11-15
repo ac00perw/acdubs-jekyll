@@ -1,22 +1,27 @@
-<div class="row">
-	<div class="large-2 columns">
-		<img src="http://thetvdb.com/banners/posters/<?php print $k->tvdbid; ?>-1.jpg" width="150"/>
+	<div class="row">
+		<div class="large-12 columns">
+			<h4><?php print $k->show_name; ?></h4>
+		</div>
 	</div>
-	<div class="large-10 columns">
-		<table width="100%">
-			<tr>
-				<td><?php print $k->show_name. ": ".$k->ep_name; ?></td>
-				<td>S<?php print $k->season."E".$k->episode; ?></td>
-				<td>S<?php print $k->network; ?></td>
-			</tr>			
-			<tr>
-				<td colspan=3><?php print $k->airdate; ?> <?php print $k->airs; ?></td>
-
-			</tr>
-			<tr>
-				<td colspan=3><?php print $k->ep_plot; ?></td>
-			</tr>
-		</table>
+	<div class="row">
+		<div class="large-2 columns">
+			<img src="http://thetvdb.com/banners/posters/<?php print $k->tvdbid; ?>-1.jpg" width="150"/>
+		</div>
+		<div class="large-10 columns end">
+			<div class="row">
+				<div class="large-8 columns ep-info">
+					"<?php print $k->ep_name; ?>"
+				</div>
+				<div class="large-4 columns right ep-info">
+					S<?php print $k->season."E".$k->episode; ?> | <?php print $k->network; ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					<p><?php print $k->ep_plot; ?></p><p><?php print $k->airs; ?> <?php print $k->airdate; ?></p>
+				</div>
+			</div>
+		</div>
 	</div>
 
-</div>
+<?php //print_r($k); ?>

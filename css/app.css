@@ -174,7 +174,11 @@ z-index: 19;
 border: 1px solid #333;
 display: block;
 }
-
+#scene video{
+	width: 980px;
+	height: 320px;
+	z-index: 11;
+}
 #scene{
 display: block;
 position: relative;
@@ -401,3 +405,12 @@ padding: 5px;
 margin: 10px;
 line-height: 130%;
 }*/
+.ep-info{
+	font-weight: bold;
+	font-size: 110%;
+}
+.tvshow{
+	float: right;
+	width: 50%;
+	min-height: 200px;
+}
