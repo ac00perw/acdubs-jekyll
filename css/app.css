@@ -264,11 +264,8 @@ animation: slinkybounce .25s linear infinite;
 width: 500px;
 position: absolute;
 bottom: 5px;
-left: 50%;
-/* -webkit-animation: driveon 5s linear 1; */
-	-moz-animation: sdriveon 15s linear infinite;
-	-webkit-animation: sdriveon 15s linear infinite;
-	animation: sdriveon 15s linear infinite;	
+right: 1%;
+
 z-index: 20;
 }
 
@@ -413,4 +410,7 @@ line-height: 130%;
 	float: right;
 	width: 50%;
 	min-height: 200px;
+}
+.mytake{
+	font-size: 1.2em;
 }

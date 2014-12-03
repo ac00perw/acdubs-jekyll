@@ -16,7 +16,7 @@
 # update options and server names to actually make it work!
 
 devssh= "mc@noisebelt.com:/var/www/acdubs.com/"
-prodssh= "c00p@acve:/var/www/acdubs.com/html/"
+prodssh= "acve:/var/www/acdubs.com/html/"
 #prodssh= "pi@10.1.1.60:/var/www/"
 
 def jekyll(opts="", path="")
@@ -26,12 +26,15 @@ end
 
 desc "Build site using Jekyll"
 task :build do
+
   jekyll "build"
 end
 
 desc "Serve on Localhost with port 4000"
 task :default do
-    puts devssh[0]
+  puts 'Getting shows'
+  sh 'scp -P8080 mc@10.1.1.12:/var/www/television/shows.html ./television_shows.html'
+  puts devssh[0]
   jekyll " serve --watch"
 end
 
@@ -62,7 +65,7 @@ namespace :deploy do
 #  task :all => [:dev, :live]
   
   def rsync(domain)
-    
+   
     
     puts 'Compressing CSS files...'
     sh "java -jar ./_lib/yuicompressor-2.4.7.jar _site/css/app.css -o _site/css/app.css"
