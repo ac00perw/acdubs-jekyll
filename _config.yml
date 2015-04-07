@@ -1,5 +1,9 @@
 exclude: [rakefile, lowbrow, f4index.html, mp3]
 plugins: ./_plugins
-siteTitle: Adam Cooper Wood | acdubs.com
+siteTitle: Adam Cooper Wood
 future: false
 relative_permalinks: false
+url: http://acdubs.com
+sitemap:
+    exclude:
+        - "404"

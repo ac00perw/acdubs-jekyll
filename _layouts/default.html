@@ -1,5 +1,11 @@
 {% include head.html %}
 <body>
+	<div id="recipeModal" class="reveal-modal large" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+	  <h2 id="modalTitle">Delicious Vegan AND Gluten-Free Cookie.</h2>
+
+	  <p><img src='/images/recipes/vegan-cookies/cookie.jpg' /></p>
+	  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+	</div>
 <div id="page" class="row">
 {% if page.id == 'home' %}
 	<div id="scene">
