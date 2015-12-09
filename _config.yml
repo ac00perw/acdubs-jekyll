@@ -1,5 +1,5 @@
 exclude: [rakefile, lowbrow, f4index.html, mp3]
-plugins: ./_plugins
+plugins_dir: ./_plugins
 siteTitle: Adam Cooper Wood
 future: false
 relative_permalinks: false

@@ -10,7 +10,7 @@ and <a href="http://leesrazors.com">Lee's Razors</a> (Edwin Jagger handle pictur
 
 	<div class="large-4 column offset-by-two">
 		<ul class="square ">
-		{% for p in site.pages %}
+		{% for p in page.keywords %}
 		{% if p.categories contains 'shaving' %}
 		  <li><a href="{{ p.url }}">{{ p.title }}</a></li>
 		{% endif %}

@@ -4,14 +4,14 @@ layout: default
 id: recipesIndex
 ---
 <p>Here are a few recipes that get made quite a bit in our kitchen. We have a variety of sauces we make, too, one of my
-favorite being Nuoc Cham. We have a variety of amazing Vietnamese restaurants up here in Burlington to attempt to emulate! </p>  
+favorite being Nuoc Cham. We have a variety of amazing Vietnamese restaurants up here in Burlington to attempt to emulate! </p> 
 <p>When we have a bit more time, we'll also do another mini family-based Iron Chef competition. Our inaugural secret ingredient 
 was.... TOFU! It's remarkable what you can do with an ingredient when you're under a bit of pressure!</p>  
 <p>I hope these are useful to you! Send me a     
 <a href="https://twitter.com/intent/tweet?screen_name=ac00perw" class="twitter-mention-button" data-related="ac00perw">tweet</a>
- if they are!</p>
+ or an <a href="/contact/">email</a> if they are!</p>
 <ul class="no-bullet">
-{% for n in site.pages %}
+{% for n in page.keywords %}
 	{% if n.id == "recipes" %}
 		<li><a href="{{ n.url }}">{{ n.title }}</a></li>
 	{% endif %}

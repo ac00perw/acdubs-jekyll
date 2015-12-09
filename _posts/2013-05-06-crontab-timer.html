@@ -11,10 +11,8 @@ you too can have a poor-man's timer for starting seedlings. Sure timers only cos
 you get all Bill Gates Home Automatey with very little money. To get Ubuntu/linux to talk to your lamps and whatnot, you'll also need the cm17a, 
 the serial port X10 transceiver, or it's younger USB brother, the cm19a.</p>
 <p><img class="right" src="/images/network/lampmodule.jpg" />I have a few modules hooked up to random lights around the house, and we use one on the Christmas Tree for the holidays.
-It's simple to get Heyu to talk your modules through the electrical wires.</p>
-<p>Note: My cm17a which is the serial port device that communicates to X10's various modules is NOT plugged into my serial port, but 
-attached to a serial -> USB adapter. I've seen various reports of success/failure with this type of device so you mileage may vary.
-Personally, it has not been a problem. In my Heyu config file, I'm pointing to my device 'by-id' (this is all one line):</p>
+It's simple to get Heyu to talk to your modules through the electrical wires.</p>
+<p>Note: My cm17a which is the serial port device that communicates to X10's various modules is NOT plugged into my serial port, but attached to a serial -> USB adapter. I've seen various reports of success/failure with this type of device so you mileage may vary. Personally, it has not been a problem. In my Heyu config file, I'm pointing to my device 'by-id' (this is all one line):</p>
 <pre class="prettyprint">
 TTY	/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0
 </pre>
