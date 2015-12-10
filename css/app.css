@@ -188,7 +188,7 @@ height: 320px;
 width: 100%;
 border: 1px solid #333;
 overflow-x: hidden;
-background: url(/images/headers/court-seamus.jpg) no-repeat 0  0;
+background-size: cover;
 
 }
 
