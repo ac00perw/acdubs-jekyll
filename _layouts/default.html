@@ -7,72 +7,10 @@
 	  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 	</div>
 <div id="page" class="row">
-{% if page.id == 'home' %}
 	<div id="scene">
-		<div id="road">
-		</div>
-		<div id="guardrail">
-			<img src="/images/guardrail.png"/>	
-		</div>
 		
-		<div id="tree">
-			<img src="/images/tree.png"/>	
-		</div>
-		<div id="tree2">
-			<img src="/images/tree.png"/>	
-		</div>
-		<div id="tree3">
-			<img src="/images/tree.png"/>	
-		</div>
-		
-		<div id="elbycar">
-			<div id="elby">
-				<img src="/images/elby.png" />
-			</div>
-			<div id="carbody">
-				<img src="/images/elbycar.png" />
-			</div>
-			<div id="wheel1">
-				<img src="/images/wheel.png" />
-			</div>
-			<div id="wheel2">
-				<img src="/images/wheel.png" />
-			</div>		
-		</div>
-		
-		<div id="mowglicar">
-			<div id="mowgli">
-				<img src="/images/mowgli.png" />
-			</div>
-			<div id="carbody">
-				<img src="/images/mowglicar.png" />
-			</div>
-			<div id="wheel1">
-				<img src="/images/wheel.png" />
-			</div>
-			<div id="wheel2">
-				<img src="/images/wheel.png" />
-			</div>		
-		</div>
-		
-		<div id="car">
-			<div id="slinky">
-				<img src="/images/slinky.png">
-			</div>
-			<div id="carbody">
-				<img src="/images/slinkycar.png"/>
-			</div>
-			<div id="wheel1">
-				<img src="/images/wheel.png"/>
-			</div>
-			<div id="wheel2">
-				<img src="/images/wheel.png"/>
-			</div>			
-		</div>
 	</div><!-- end scene -->
-	{% else %}
-	<div id="deadscene"><img src="/images/slinky-bw.jpg" /></div>
-	{% endif %}
+
 		{% include nav.html %}
 		<div class="large-12 columns">
 			{% if page.id != 'home' %}

@@ -11,9 +11,8 @@ was.... TOFU! It's remarkable what you can do with an ingredient when you're und
 <a href="https://twitter.com/intent/tweet?screen_name=ac00perw" class="twitter-mention-button" data-related="ac00perw">tweet</a>
  or an <a href="/contact/">email</a> if they are!</p>
 <ul class="no-bullet">
-{% for n in page.keywords %}
-	{% if n.id == "recipes" %}
+{% assign recipes = (site.pages | where: "layout" , "recipe") %}
+{% for n in recipes %}
 		<li><a href="{{ n.url }}">{{ n.title }}</a></li>
-	{% endif %}
 {% endfor %}
 </ul>
