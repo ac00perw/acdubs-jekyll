@@ -4,15 +4,19 @@ title: Technical Snippets
 ---
 <div class="row">
 	<div class="large-8 columns">
-		<ul class="square">
+		<ul class="no-bullet">
 		
-			{% for post in site.categories.networking %}
-			  <li><a href="{{ post.url | replace: 'index.html', '' }}">{{ post.title }}</a></li>
+			{% for post in site.posts %}
+			  <li>
+				  <h1><a href="{{ post.url | replace: 'index.html', '' }}">{{ post.title }}</a></h1>
+				  {{post.content | strip_html | truncatewords: 100}}
+				  <p><a href="{{ post.url | replace: 'index.html', '' }}">[MORE]</a></p>
+			  </li>
 			{% endfor %}
 		</ul>
 	</div>
-	<div class="large-4 columns">
-	<p><a href="/tech-specs">Tech Specs/Hardware List</a></p>
+	<div class="large-4 columns sidebar">
+	<p><a href="/avclub/tech-specs">Tech Specs/Hardware List</a></p>
 	<h1>Posts by category</h1>
 		{% for category in site.sorted_categories %}
 	
@@ -23,7 +27,7 @@ title: Technical Snippets
 				<li><a href="{{ post.url | replace: 'index.html', '' }}">'{{ post.title }}'</a></li>
 				{% endfor %}
 			</ul>
-		{% endunless %}
+			{% endunless %}
 
 		{% endfor %}
 	</div>

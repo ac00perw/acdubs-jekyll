@@ -1,0 +1,18 @@
+---
+layout: blog
+title: DD-WRT and Blocking Steam
+permalink: /blog/dd-wrt-blocking-steam/index.html
+id: network
+categories: [Networking, DD-WRT, Steam]
+---
+<p>Kids and their videogames are hard to separate sometimes. While it's always better to teach the kids to moderate themselves, sometimes having a little help doesn't hurt. This is pretty easy to do using <a href="http://www.dd-wrt.com/site/index">DD-Wrt</a> if you have it installed on your router already. If you don't, I'd suggest you look into it. It has been a huge help in keeping the kids' videogame time at bay for us.</p> 
+<p>If you need to block all access to Steam for an indefinite period of time, adding the following to the firewall section (click on Administration, then commands, and finally 'Edit' in the firewall box at the bottom) to add the following to the firewall script:</p>
+<pre class="prettyprint lang-html">
+#block all steam ports & site
+iptables -I FORWARD -p udp --dport 27000:27037 -j DROP
+iptables -I FORWARD -p udp --dport 4380 -j DROP
+iptables -I FORWARD -p tcp --dport 27014:27050 -j DROP 
+iptables -I FORWARD -p udp --dport 4379-4380 -j DROP
+iptables -I FORWARD -s 104.96.174.100 -j DROP
+</pre>
+<p>The first line is just a comment so you can remember what these rules do. In fact, I keep those lines of code in my firewall script "commented out" so I can easily turn it on if I need to. The following four lines tell your router to drop all communication to the ports Steam uses to communicate. That affectively shuts down steam. The last line drops connections to the Steam website. it isn't required to block game play, but will shut down the website as well.</p>

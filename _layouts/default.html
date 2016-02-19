@@ -1,21 +1,10 @@
 {% include head.html %}
-<body>
-	<div id="recipeModal" class="reveal-modal large" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-	  <h2 id="modalTitle">Delicious Vegan AND Gluten-Free Cookie.</h2>
+<body id="{{page.id}}">
 
-	  <p><img src='/images/recipes/vegan-cookies/cookie.jpg' /></p>
-	  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-	</div>
+{% include nav.html %}
 <div id="page" class="row">
-	<div id="scene">
-		
-	</div><!-- end scene -->
 
-		{% include nav.html %}
 		<div class="large-12 columns">
-			{% if page.id != 'home' %}
-			<h1 class="pagetitle">{{ page.title }}</h1>
-			{% endif %}
 			<div id="contentwrapper" class="row">
 				<div class="node large-twelve columns">
 					 {{ content }}
@@ -23,9 +12,9 @@
 			</div>
 		</div>
 </div>
-<div class="row">
-	  {% include footer.html %}
-</div>
+
+{% include footer.html %}
+
 {% include bottomscripts.html %}
 
 </body>

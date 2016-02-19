@@ -1,0 +1,30 @@
+---
+layout: default
+title: Web Development
+permalink: /webdev/index.html
+id: services
+---
+	<div class=" row">
+		<div class="large-12 columns">
+			<h1>Have Photoshop Will Travel</h1>
+			<p>I can build that thing for you on the Internet. I've been building websites since 1997, and have worked on projects for a number of organizations including Common Ground Center, Dealer.Com, Improvised Communications, Legitify, Vew-Do Balance Boards, beer company Magic Hat,
+				Solar Barns, band Rue Mevlana, pianist John Beasley, actor Robert Toms, and more.</p>
+			<p><a href="/contact/">Contact me</a>. I offer discounted rates to non-profits so I can help you help the world.</p>
+			
+			<div class="row large-up-3">
+
+{% for page in site.pages %}
+  {% if page.categories contains 'employer' %}
+	  {% for l in page.links %}
+		    {% if l.thumb %}	 
+				<div class="column sitethumb">
+				     <a href="{{l.link}}"><img src="{{l.thumb}}" /></a>
+					 <a href="{{l.link}}"><div class="nameplate">{{l.name}}</div></a>
+				</div>
+			{% endif %}
+	   {% endfor %}
+   {% endif %}
+{% endfor %}
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,21 @@
+{% include head.html %}
+<body class="{{page.id}}">
+
+{% include nav.html %}
+<div id="page" class="row">
+
+		<div class="large-12 columns">
+			<div id="contentwrapper" class="row">
+				<div class="node large-twelve columns">
+					 {{ content }}
+				</div>
+			</div>
+		</div>
+</div>
+<div class="row">
+	  {% include footer.html %}
+</div>
+{% include bottomscripts.html %}
+
+</body>
+</html>

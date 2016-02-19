@@ -4,6 +4,11 @@ siteTitle: Adam Cooper Wood
 future: false
 relative_permalinks: false
 url: http://acdubs.com
+tech: [PHP, MySql, CSS/SASS, JS, Python, Ruby, Objective C]
+apps: [Photoshop, Illustrator, After Effects, Premiere, Arduino IDE, Logic Pro, Pro Tools]
+frameworks: [Jekyll, Wordpress, Drupal, Ubercart, Foundation, Rails, Bootstrap, osCommerce]
+apis: [MailChimp, Google Maps, MapBox/Leaflet]
+versioning: [GIT, SVN]
 sitemap:
     exclude:
         - "404"

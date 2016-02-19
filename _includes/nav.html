@@ -1,36 +1,41 @@
-<nav class="top-bar">
-  <ul class="title-area">
-    <!-- Title Area -->
-    <li class="name">
-      <h1><a href="/">Adam Cooper Wood</a></h1>
-    </li>
-  </ul>
-  <ul>
-  <li class="left toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  <ul>
-    <!-- Left Nav Section -->
-    <section class="top-bar-section">
-    <ul class="left">
-		  <li class="divider"></li>
-  		<li class="has-dropdown {% if page.url contains "/music/" %}active{% endif %}"><a href="/music">Music</a>
-  				<ul class="dropdown">
-				  <li><a href="/music">General Music</a></li>
-				  <li><a href="/music/c-funk">C-Funk - Shitcan Noisebelt</a></li>
-				</ul>
-  		  </li>
-          <li {% if page.url contains "/blog/" %}class="active"{% endif %}><a href="/blog">Blog</a></li>
-          <li  {% if page.url contains "/shaving/" %}class="active"{% endif %}><a href="/shaving">Shaving</a></li>
-          <li  {% if page.url contains "/video/" %}class="active"{% endif %}><a href="/video">Video</a></li>
-          <li  {% if page.url contains "/recipes/" %}class="active"{% endif %}><a href="/recipes">Recipes</a></li>
-		  <li  {% if page.url contains "/tech-specs/" %}class="active"{% endif %}><a href="/tech-specs">Toys</a></li>
-		  <li  {% if page.url contains "/tv/" %}class="active"{% endif %}><a href="/tv">Television</a></li>
-          <li class="{% if page.url contains "about" %}active{% endif %} has-dropdown"><a href="/about">About</a>
-			  <ul class="dropdown">
-			  	<li  {% if page.url contains "/contact/" %}class="active"{% endif %}><a href="/contact">Contact</a></li>
-			  </ul>
-	  	  </li>
-    </ul>
-    </section>
-</ul>
+<div class=" menubar">
+		<div class="{% if page.id == "home" %}animated fadeIn delay-08s{% endif %} top-bar" id="coop-menu">
+		    <!-- Left Nav Section -->
+				    <ul class="dropdown menu horizontal small-vertical " data-dropdown-menu >
 
-</nav>
+					  	<li {% if page.url contains "webdev" %}class="active{% endif %} has-submenu">
+							<a href="/webdev"><i class="fi-web"></i> Web Development</a>
+							<ul class="submenu menu vertical">
+								<li {% if page.url contains "/resume" %}class="active"{% endif %}><a href="/webdev/resume"><i class="fi-folder"></i> Resume</a></li>
+							</ul>
+						</li>
+					  	<li class="{% if page.url contains "/avclub/" %}active{% endif %} has-submenu">
+								<a href="#"><i class="fi-microphone"></i> AV Club</a>
+				  				<ul class="submenu menu vertical">
+								  <li {% if page.url contains "/music/" %}class="active"{% endif %}><a href="/avclub/music"><i class="fi-music"></i> Music</a></li>
+								  <li  {% if page.url contains "tv/" %}class="active"{% endif %}><a href="/avclub/tv"><i class="fi-play"></i> Television</a></li>
+  							      <li  {% if page.url contains "tech-specs/" %}class="active"{% endif %}><a href="/avclub/tech-specs"><i class="fi-wrench"></i> Toys</a></li>
+						          <li  {% if page.url contains "video/" %}class="active"{% endif %}><a href="/avclub/video"><i class="fi-video"></i> Video</a></li>
+								</ul>
+				  		  </li>
+				          <li {% if page.url contains "/blog/" %}class="active"{% endif %}><a href="/blog"><i class="fi-pencil"></i> Blog</a></li>
+				          <!-- li  {% if page.url contains "/shaving/" %}class="active"{% endif %}><a href="/shaving">Shaving</a></li -->
+				          <li  {% if page.url contains "/recipes/" %}class="active"{% endif %}><a href="/recipes"><i class="fi-paperclip"></i> Recipes</a></li>
+				          <li class="{% if page.url contains "about" %}active{% endif %}"><a href="/about"><i class="fi-info"></i> About</a></li>
+					  	  <li  {% if page.url contains "/contact/" %}class="active"{% endif %}><a href="/contact"><i class="fi-megaphone"></i> Contact</a></li>
+				    </ul>
+					
+			</div>
+	<div class="title-bar" data-responsive-toggle="coop-menu" data-hide-for="medium">
+  
+	  <ul class="vertical menu">
+		  <li><a href="/services">Web Development</a></li>
+		  <li><a href="/resume">Resume</a></li>
+		  <li><a href="/avclub/music">Music</a></li>
+		  <li><a href="/avclub/video">Video</a></li>
+		  <li><a href="/blog">Blog</a></li>
+		  <li><a href="/recipes">Recipes</a></li>
+		  <li><a href="/contact">Contact</a></li>
+	  </ul>
+	</div>
+		</div>

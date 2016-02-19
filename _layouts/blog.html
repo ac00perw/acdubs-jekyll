@@ -1,8 +1,7 @@
 {% include head.html %}
 <body>
-<div id="page" class="row">
-	<div id="deadscene"><img src="/images/slinky-bw.jpg" /></div>
 	{% include nav.html %}
+<div id="page" class="row">
 	<h1 class="pagetitle">{{ page.title }}</h1>
 	<div class="large-9 columns">
 		{% for p in page.categories %}
@@ -11,13 +10,13 @@
 		<p>{{ content }}</p>
 		{% include disqus.html %}
 	</div>
-	<div class="large-3 columns">	
+	<div class="large-3 columns sidebar">	
 
 			<p><a href="/tech-specs">Tech Specs/Hardware List</a></p>
-			{% for category in site.sorted_categories limit: 7 %}
+			{% for category in site.sorted_categories limit: 10 %}
 			<h6>Posts about '{{ category | first }}'</h6>
 			<ul>
-			{% for post in category.last limit: 7 %}
+			{% for post in category.last limit: 10 %}
 			<li><a href="{{ post.url | replace: 'index.html', '' }}">{{ post.title }}</a></li>
 			{% endfor %}
 			</ul>

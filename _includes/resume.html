@@ -1,0 +1,68 @@
+<div class="row nameplate">
+	<div class="large-5 columns mast ">
+		<h1 class="animated fadeIn delay-08s">Adam Cooper Wood</h1>
+		<p  class="animated fadeIn delay-12s"><i class="fi-map"></i> South Burlington, VT 05403 <i class="fi-telephone"></i> 802-338-2421</p>
+	</div>
+</div>
+<hr />
+<div class="row animated fadeIn delay-12s">
+	<div class="large-12 columns">
+		<div class="large-6 columns spec">
+		<span class="header">Languages</span>
+		<p>{{ site.tech | array_to_sentence_string }}</p>
+
+		</div>
+		<div class="large-6 columns spec">
+		<span class="header">Applications</span>
+		<p>{{ site.apps | array_to_sentence_string }}</p>
+
+		</div>
+		<div class="large-6 columns spec">
+		<span class="header">Frameworks & Content Management</span>
+		<p>{{ site.frameworks | array_to_sentence_string }}</p>
+
+		</div>
+		<div class="large-6 columns spec">
+		<span class="header">Version Control</span>
+		<p>{{ site.versioning | array_to_sentence_string }}</p>
+
+		</div>
+	</div>
+</div>
+
+<hr />
+<div class="row animated fadeIn delay-14s">
+{% for page in site.pages %}
+  {% if page.categories contains 'employer' %}
+  
+
+    <div class=" large-12 columns">
+      <h5 class="header">{{page.title}}</h5>
+
+	      <p>{{page.date}} : {{page.description}}</p>  
+	      <p>{{page.content}}</p> 
+
+		  <div class="row">
+
+			  {% for l in page.links %}
+				
+
+				  <div class="large-12 columns item">
+						  {% if l.link %}
+							  <a href="{{l.link}}">{{l.name}}</a>
+						  {% else %}
+							  {{l.name}}
+						  {% endif %}
+						  
+				  		{% if l.description %} {{l.description}} {% endif %}
+
+  				</div>
+			  
+				
+			  {% endfor %}
+			</div>
+
+    </div>
+  {% endif %}
+{% endfor %}
+</div>
