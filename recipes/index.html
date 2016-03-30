@@ -13,9 +13,10 @@ id: recipesIndex
 		<a href="https://twitter.com/intent/tweet?screen_name=ac00perw" class="twitter-mention-button" data-related="ac00perw">tweet</a>
 		 or an <a href="/contact/">email</a> if they are!</p>
 	</div>
-	<div class="large-4 columns">
+	<div class="large-4 columns sidebar">
 		<ul class="no-bullet">
-		{% assign recipes = (site.pages | where: "layout" , "recipe") %}
+		{% assign recipes = (site.pages | where: "layout" , "recipe" | sort: "title") %}
+		
 		{% for n in recipes %}
 				<li><a href="{{ n.url }}">{{ n.title }}</a></li>
 		{% endfor %}

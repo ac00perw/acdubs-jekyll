@@ -1,0 +1,25 @@
+---
+layout: blog
+title: Removing 'Suggested Videos' From Your Facebook Page
+permalink: /blog/removing-suggested-videos/index.html
+id: network
+categories: [Facebook, Chrome, Stylish, WCAX, CSS]
+---
+<p>If you're like me, your Facebook feed is filled with videos of Bernie Sanders that your friends have shared. Unfortunately, Facebook also has a "Suggested Videos" list that comes after the video your friend posted. The unfortunate part being that these are sometimes negative in nature or slanted towards corporate America's favorite democratic candidate or that republican candidate with the mental problem. I would prefer not to be fed videos by Facebook. I'll let my friends do that. They're the only reason I'm on the dumb site in the first place.</p> 
+<p>Cool. Let's remove that suggested videos box using a Chrome plugin called <a href="https://userstyles.org/">Stylish</a>.</p>
+<p>Stylish is a nifty browser extension (it works on Firefox, Chrome, Safari, and Opera) that lets you inject your own Cascading Style Sheet into any web page. You can change just about anything on websites you visit with a little knowledge of CSS.</p>
+<p>To install Stylish on Google Chrome, visit <a href="https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en-US">Stylish</a> at the "Chrome Web Store."</p>
+<p>Select 'Add to Chrome' in the top right corner</p>
+<p><img style="float: right" src="/images/posts/stylish/ess.png" /><You might need to restart Chrome to get it to stick. When it's installed you should see a little 'S' to the right of the address bar.</p>
+<p>Click on that S-in-the-box and select 'Write style for this url' at the bottom. This will bring up Stylish's handy CSS editor.</p>
+<p>Boom. You're now staring at the magic of Stylish: <img src="/images/posts/stylish/stylish-window.jpg" /></p>
+<p>You'll need to give it a name (I called mine Facebook for simplicity), and turn it on by clicking 'Enabled' if it's not already clicked.</p>
+<p>Next, type or copy/paste the following code into the Code window as seen in the screenshot:</p>
+<pre class="prettyprint lang-html">
+._3lkn{
+	display: none;
+}
+</pre>
+<p>These lines select all elements called _3lkn and hides them from display. Now press Save to keep your changes, and every time you visit Facebook.com this style will be applied and will hide the suggested videos box.</p>
+<p>What's more, Stylish has tons of styles for popular sites including Facebook, though I doubt I will ever style Facebook to look like some energy drink I've never had. Maybe that's your dream in life. <a href="https://userstyles.org/styles/browse/Facebook">Link to many many Facebook styles</a>.</p>
+<p>Even more, I use Stylish to remove ads & videos that play on load from websites. Somebody even wrote a style for the <a href="https://userstyles.org/styles/browse/WCAX">WCAX website</a>, my local CBS affiliate in Burlington, VT that makes it much easier to read.</p>
