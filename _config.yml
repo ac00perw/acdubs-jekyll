@@ -1,14 +1,10 @@
-exclude: [rakefile, lowbrow, f4index.html, mp3]
+exclude: [rakefile, lowbrow, f4index.html, mp3, Gemfile]
 plugins_dir: ./_plugins
-siteTitle: Adam Cooper Wood
+siteTitle: Adam Wood Burlington VT Web Design Development
 future: false
 relative_permalinks: false
 url: http://acdubs.com
-tech: [PHP, MySql, CSS/SASS, JS, Python, Ruby, Objective C]
+tech: [PHP, MySQL, CSS, SASS, Javascript, Python, Ruby, Grunt, Jekyll, Wordpress, Drupal, Rails, Foundation, Bootstrap, GIT, SVN]
 apps: [Photoshop, Illustrator, After Effects, Premiere, Arduino IDE, Logic Pro, Pro Tools]
-frameworks: [Jekyll, Wordpress, Drupal, Ubercart, Foundation, Rails, Bootstrap, osCommerce]
-apis: [MailChimp, Google Maps, MapBox/Leaflet]
-versioning: [GIT, SVN]
-sitemap:
-    exclude:
-        - "404"
+gems:
+  - jekyll-sitemap

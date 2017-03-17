@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Technical Snippets
+exclude_from_search: true
 ---
 <div class="row">
 	<div class="large-8 columns">
@@ -9,7 +10,7 @@ title: Technical Snippets
 			{% for post in site.posts %}
 			  <li>
 				  <h1><a href="{{ post.url | replace: 'index.html', '' }}">{{ post.title }}</a></h1>
-				  {{post.content | strip_html | truncatewords: 40}}
+				  {{ post.date | date: '%B %d, %Y' }} - {{post.content | strip_html | truncatewords: 40}}
 				  <p><a href="{{ post.url | replace: 'index.html', '' }}">[MORE]</a></p>
 			  </li>
 			{% endfor %}

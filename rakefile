@@ -26,20 +26,22 @@ end
 
 desc "Build site using Jekyll"
 task :build do
-
+  compress
   jekyll "build"
 end
 
 desc "Serve on Localhost with port 4000"
 task :default do
-  puts 'Getting shows'
-  sh 'scp -P8080 mc@10.1.1.12:/var/www/television/shows.html ./television_shows.html'
-  puts devssh[0]
+  #puts 'Getting shows'
+  #sh 'scp -P8080 mc@10.1.1.12:/var/www/television/shows.html ./television_shows.html'
+  #puts devssh[0]
+  compress
   jekyll " serve --watch"
 end
 
 desc "Serve on Localhost with port 4000 using development version"
 task :unstable do
+
   jekyll " build --watch", "../jekyll/bin/"
 end
 
@@ -68,11 +70,11 @@ namespace :deploy do
 
 
     puts 'Compressing CSS files...'
-    sh "java -jar ./_lib/yuicompressor-2.4.7.jar _site/css/app.css -o _site/css/app.css"
+    #sh "java -jar ./_lib/yuicompressor-2.4.7.jar _site/css/app.css -o _site/css/app.css"
     puts 'Compressing JS files...'
-    puts `find _site/js -name '*.js' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type js '{}' -o '{}' \\;`
+    #puts `find _site/js -name '*.js' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type js '{}' -o '{}' \\;`
  	puts "rsync starting..."
-    sh "rsync -rz  --delete _site/  #{domain}"
+    sh "rsync -rz --delete --exclude 'node_modules' _site/  #{domain}"
     #sh "rsync -rtz --exclude 'mp3' _site/  #{domain}"
     #example will pull files down:
     # rsync -avz -e "ssh -p $portNumber" user@remoteip:/path/to/files/ /local/path/#{domain}/"
@@ -80,8 +82,9 @@ namespace :deploy do
 
   def compress
       puts 'Compressing CSS/JS files...'
-      puts `find _site/stylesheets -name '*.css' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type css '{}' -o '{}' \\;`
-      puts `find _site/javascripts -name '*.js' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type js '{}' -o '{}' \\;`
+      puts `uglifyjs -b -o js/scripts.js -- js/vendor/jquery.min.js js/foundation.js  js/vendor/what-input.min.js js/app.js \\`;
+      #puts `find _site/stylesheets -name '*.css' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type css '{}' -o '{}' \\;`
+      #puts `find _site/javascripts -name '*.js' -exec java -jar ./_lib/yuicompressor-2.4.7.jar --type js '{}' -o '{}' \\;`
 
   end
 

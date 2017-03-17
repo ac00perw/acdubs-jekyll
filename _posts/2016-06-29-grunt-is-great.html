@@ -1,0 +1,114 @@
+---
+layout: blog
+title: Grunt Is Great
+permalink: /blog/grunt-is-great/index.html
+id: network
+categories: [Web development, JavaScript, Grunt, SASS, CSSmin, UglifyJS, LiveReload]
+---
+<p><img align="left" width="80" src="/images/posts/grunt-logo.svg" />You've got NPM installed. You've dabbled in Node. Maybe you know and enjoy the benefits of Ruby's Rake. Maybe your Jekyll site has a bunch of super-handy Rake functions that help you compile your Jekyll site, compile your SASS, compress your assets, optimize your images, rsync your website, etc.</p>
+<p>Awesome. Grunt does this too. And does it well. And it's JavaScript so you already know how to configure the shit out of it. It's stupidly easy to get it <a href="http://http://gruntjs.com/getting-started">set up</a>. 
+<p>It's also easy to configure. Did I mention that already? This most excellent example of a rather complicated setup for a Drupal install came from the <a href="https://www.drupal.org/project/zurb_foundation">ZURB Foundation theme for Drupal 7</a>. If you've already poured over the instructions and example config at GruntjsCom this should be mostly explanatory, and I probably modified it a little.</p>
+<pre class="prettyprint">
+module.exports = function(grunt) {
+  require('load-grunt-tasks')(grunt);
+
+  var theme_name = 'cgc_foundation';
+  var base_theme_path = '../zurb_foundation';
+
+  var global_vars = {
+    theme_name: theme_name,
+    theme_css: 'css',
+    theme_scss: 'scss',
+    base_theme_path: base_theme_path
+  };
+
+  var bourbon = require('node-bourbon').includePaths;
+
+  // array of javascript libraries to include.
+  var jsLibs = [
+    load up your files here
+  ];
+
+  // array of foundation javascript components to include.
+  var jsFoundation = [
+    load up Foundation based files here
+  ];
+
+  // array of custom javascript files to include.
+  var jsApp = [
+    'js/_*.js'
+  ];
+
+  grunt.initConfig({
+    global_vars: global_vars,
+    pkg: grunt.file.readJSON('package.json'),
+
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed',
+           loadPath: require('node-bourbon').includePaths
+         
+        },
+        files: {
+          '<%= global_vars.theme_css %>/<%= global_vars.theme_name %>.css': ['<%= global_vars.theme_scss %>/animate.css', '<%= global_vars.theme_scss %>/<%= global_vars.theme_name %>.scss']
+        }
+      }
+    },
+
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc'
+      },
+      all: [
+        'Gruntfile.js',
+        jsApp
+      ]
+    },
+
+    uglify: {
+      options: {
+        sourceMap: false
+      },
+      dist: {
+        files: {
+          'js/libs.min.js': [jsLibs],
+          'js/foundation.min.js': [jsFoundation],
+          'js/app.min.js': [jsApp]
+      }
+      }
+    },
+
+    watch: {
+
+      sass: {
+        files: '<%= global_vars.theme_scss %>/**/*.scss',
+        tasks: ['sass'],
+      },
+
+      js: {
+        files: [
+          jsLibs,
+          jsFoundation,
+          '<%= jshint.all %>'
+        ],
+        tasks: ['jshint', 'uglify']
+      }
+    }
+  });
+  require('load-grunt-tasks')(grunt);
+
+  grunt.registerTask('build', ['jshint','uglify','sass']);
+  grunt.registerTask('default', ['build', 'watch']);
+};
+
+</pre>
+<p>So cool. I've installed the following modules to help ease the pain:
+	<ul>
+		<li><a href="https://github.com/gruntjs/grunt-contrib-cssmin">CSSmin</a>- Shrink them CSS files into one tiny file for quick load.</li>
+		<li><a href="https://github.com/mishoo/UglifyJS">UglifyJS</a>- Shrink them JavaScript files into one tiny file for quick load.</li>
+		<li><a href="https://github.com/gruntjs/grunt-contrib-livereload">LiveReload</a>- When accompanied with a browser extension, have the page reload if a file changes.</li>
+		<li><a href="https://github.com/gruntjs/grunt-contrib-watch">Watch</a>- Watch for changes and recompile (or any other task for that matter).</li>
+	</ul>
+</p>
+<p>Last thought- you'll find naysayers telling you not to use a taskrunner like Grunt or use Gulp instead or write your own operating system because that's the only way to have full control. Don't listen to them. In fact, tell them to bugger off. And pick the right tool for the right job. For you.</p>

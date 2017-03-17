@@ -19,7 +19,6 @@
 
 	<script src="/js/vendor/custom.modernizr.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/xed0uqy.js"></script>
-	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	{% if page.id == "video" %}		
@@ -50,19 +49,15 @@
 		});
 		</script>
 	{% endif %}
-	<style type="text/css">
-	#scene{
-		background: url('') no-repeat 0  0;
-	}
-	</style>
+
 
 </head>
 
-	<div id="scene" class="{% if page.id == "home" %}animated flipInX delay-02s{% endif %}">
+	<div id="scene" >
 		<div class="row">
 			<div class="large-12 columns">
 				<a href="/"><div class="title {% if page.id == "home" %}animated fadeInUp delay-12s{% endif %}">Adam Cooper Wood</div>
-				<div class="subtitle {% if page.id == "home" %}animated fadeInUp delay-14s{% endif %}">Web Developer & More!</div></a>
+				<div class="subtitle {% if page.id == "home" %}animated fadeInUp delay-14s{% endif %}">Web Designer/Developer</div></a>
 			</div>
 		</div>
 	</div><!-- end scene -->

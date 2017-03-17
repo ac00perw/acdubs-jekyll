@@ -1,41 +1,57 @@
-<div class=" menubar">
-		<div class="{% if page.id == "home" %}animated fadeIn delay-08s{% endif %} top-bar" id="coop-menu">
-		    <!-- Left Nav Section -->
-				    <ul class="dropdown menu horizontal small-vertical " data-dropdown-menu >
-
-					  	<li {% if page.url contains "webdev" %}class="active{% endif %} has-submenu">
-							<a href="/webdev"><i class="fi-web"></i> Web Development</a>
-							<ul class="submenu menu vertical">
-								<li {% if page.url contains "/resume" %}class="active"{% endif %}><a href="/webdev/resume"><i class="fi-folder"></i> Resume</a></li>
-							</ul>
-						</li>
-					  	<li class="{% if page.url contains "/avclub/" %}active{% endif %} has-submenu">
-								<a href="#"><i class="fi-microphone"></i> AV Club</a>
-				  				<ul class="submenu menu vertical">
-								  <li {% if page.url contains "/music/" %}class="active"{% endif %}><a href="/avclub/music"><i class="fi-music"></i> Music</a></li>
-								  <li  {% if page.url contains "tv/" %}class="active"{% endif %}><a href="/avclub/tv"><i class="fi-play"></i> Television</a></li>
-  							      <li  {% if page.url contains "tech-specs/" %}class="active"{% endif %}><a href="/avclub/tech-specs"><i class="fi-wrench"></i> Toys</a></li>
-						          <li  {% if page.url contains "video/" %}class="active"{% endif %}><a href="/avclub/video"><i class="fi-video"></i> Video</a></li>
-								</ul>
-				  		  </li>
-				          <li {% if page.url contains "/blog/" %}class="active"{% endif %}><a href="/blog"><i class="fi-pencil"></i> Blog</a></li>
-				          <!-- li  {% if page.url contains "/shaving/" %}class="active"{% endif %}><a href="/shaving">Shaving</a></li -->
-				          <li  {% if page.url contains "/recipes/" %}class="active"{% endif %}><a href="/recipes"><i class="fi-paperclip"></i> Recipes</a></li>
-				          <li class="{% if page.url contains "about" %}active{% endif %}"><a href="/about"><i class="fi-info"></i> About</a></li>
-					  	  <li  {% if page.url contains "/contact/" %}class="active"{% endif %}><a href="/contact"><i class="fi-megaphone"></i> Contact</a></li>
-				    </ul>
-					
-			</div>
+<div class="container">
+  <div class="row">
 	<div class="title-bar" data-responsive-toggle="coop-menu" data-hide-for="medium">
-  
-	  <ul class="vertical menu">
-		  <li><a href="/services">Web Development</a></li>
-		  <li><a href="/resume">Resume</a></li>
-		  <li><a href="/avclub/music">Music</a></li>
-		  <li><a href="/avclub/video">Video</a></li>
-		  <li><a href="/blog">Blog</a></li>
-		  <li><a href="/recipes">Recipes</a></li>
-		  <li><a href="/contact">Contact</a></li>
-	  </ul>
+	  <button class="menu-icon" type="button" data-toggle></button>
+	   <div class="title-bar-title">Menu</div>
 	</div>
+
+
+		<div class="top-bar" id="coop-menu">
+		  <div class="top-bar-left">
+		    <ul class="vertical dropdown medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
+			     <li itemprop="name" {% if page.url contains "webdev" %}class="active{% endif %} ">
+					<a itemprop="url" href="/webdev"><i class="fi-web"></i> Web Development</a>
+					<ul class="submenu menu vertical dropdown ">
+						<li class="hide-for-medium" {% if page.url contains "/webdev" %}class="active"{% endif %}><a href="/webdev/"><i class="fi-folder"></i> Web Development</a></li>
+						<li {% if page.url contains "/resume" %}class="active"{% endif %}><a href="/webdev/resume"><i class="fi-folder"></i> Resume</a></li>
+					</ul>
+				</li>
+			      <li itemprop="name" {% if page.url contains "/blog/" %}class="active"{% endif %}><a itemprop="url" href="/blog"><i class="fi-pencil"></i> Blog</a></li>
+			  	<li class="{% if page.url contains "/avclub/" %}active{% endif %}">
+						<a href="#"><i class="fi-microphone"></i> AV Club</a>
+							<ul class="submenu menu vertical">
+								  <li itemprop="name" {% if page.url contains "/music/" %}class="active"{% endif %}><a itemprop="url"  href="/avclub/music"><i class="fi-music"></i> Music</a></li>
+								 
+								      <li itemprop="name"  {% if page.url contains "tech-specs/" %}class="active"{% endif %}><a itemprop="url" href="/avclub/tech-specs"><i class="fi-wrench"></i> Toys</a></li>
+						          <li itemprop="name"  {% if page.url contains "video/" %}class="active"{% endif %}><a itemprop="url" href="/avclub/video"><i class="fi-video"></i> Video</a></li>
+						          <li itemprop="name" {% if page.url contains "/music/" %}class="active"{% endif %}><a itemprop="url" href="/avclub/music/c-funk"><i class="fi-music"></i> C-Funk</a></li>
+							</ul>
+					  </li>
+
+			      <li itemprop="name"  {% if page.url contains "/recipes/" %}class="active"{% endif %}><a itemprop="url" href="/recipes"><i class="fi-paperclip"></i> Recipes</a></li>
+			      <li itemprop="name"  class="{% if page.url contains "about" %}active{% endif %}"><a itemprop="url" href="/about"><i class="fi-info"></i> About</a></li>
+			  	  <li itemprop="name"  {% if page.url contains "/contact/" %}class="active"{% endif %}><a itemprop="url" href="/contact"><i class="fi-megaphone"></i> Contact</a></li>
+			  	 
+		    </ul>
+		  </div>
+		  <div class="top-bar-right hide-for-medium-only">
+			 <ul class="medium-horizontal menu">
+			 	<li>
+			 		   <form action="/search/" method="get">
+					  	  <div class="input-group">
+						  	  <input class="input-group-field" type="text" placeholder="Search" id="search-box" name="query" />
+						  	  <div class="input-group-button"><button class="button" type="submit">Go</button>
+							  </div>
+						  </div>
+					  </form>
+				
+
+			 	</li>
+			 </ul>
+				  	
+		  </div>
+
 		</div>
+
+	</div>
+ </div>
